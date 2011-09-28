@@ -1,0 +1,32 @@
+<p>
+  <b>Nome:</b>
+  <%=h @especie.nome %>
+</p>
+
+<p>
+  <b>Bibliografia:</b>
+  <%=h @especie.bibliografia %>
+</p>
+
+<p>
+  <b>Municípios onde a espécie é encontrada:</b>
+  <%for municipios in @municipios%>
+      <li>
+        <%= municipios.nome %>
+      </li>
+  <%end%>
+</p>
+
+<p>
+  <b>Imagens: </b>
+  <%for especie_imagem in @especie_imagens%>
+      <li>
+        <%= especie_imagem.legenda %><br/>
+        <img src="<%= url_for(:controller => 'especie_imagens', :action => 'imagem', :id => especie_imagem.id) %>" alt="<%=especie_imagem.nome%>"/>
+      </li>
+  <%end%>
+</p>
+
+
+<%= link_to 'Editar', edit_especie_path(@especie) %> |
+<%= link_to 'Voltar', especies_path %>

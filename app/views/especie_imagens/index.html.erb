@@ -1,0 +1,26 @@
+<h1>Listando imagens da espécie '<%= @especie.nome %>'</h1>
+
+<% if @especie_imagens.size.zero? %>
+  <br />
+  <p> Nenhuma imagem encontrada.</p>
+<% else %>
+<table>
+  <tr>
+    <th>Legenda</th>
+    <th>Imagem</th>
+  </tr>
+<% @especie_imagens.each do |especie_imagem| %>
+  <tr>
+    <td><%=h especie_imagem.legenda %></td>
+    <td><img src="<%= url_for(:action => 'imagem', :id => especie_imagem.id) %>" alt="<%=especie_imagem.nome%>"/></td>
+    <td><%= link_to 'Ver', especie_imagem %></td>
+    <td><%= link_to 'Editar', edit_especie_imagem_path(especie_imagem) %></td>
+    <td><%= link_to 'Excluir', especie_imagem, :confirm => 'Você tem certeza?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+<% end %>
+<br />
+
+<%= link_to 'Adicionar imagem', :controller => "especie_imagens", :action => "new", :especie_id => params[:especie_id] %><br />
+<%= link_to 'Voltar', edit_especie_path(@especie) %>

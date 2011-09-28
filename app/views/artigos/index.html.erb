@@ -1,0 +1,22 @@
+<h1>Listando artigos</h1>
+
+<table>
+  <tr>
+    <th>Nome</th>
+    <th>Link</th>
+  </tr>
+
+<% @artigos.each do |artigo| %>
+  <tr>
+    <td><%=h artigo.nome %></td>
+    <td><%=h artigo.link %></td>
+    <td><%= link_to 'Ver', artigo %></td>
+    <td><%= link_to 'Editar', edit_artigo_path(artigo) %></td>
+    <td><%= link_to 'Excluir', artigo, :confirm => 'Você tem certeza?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Criar artigo', new_artigo_path %>

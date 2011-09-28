@@ -1,0 +1,13 @@
+<p>
+  <b>Nome:</b>
+  <%=h @subfamilia.nome %>
+</p>
+
+<p>
+  <b>Familia:</b>
+  <%=h @subfamilia.familia_id %>
+</p>
+
+
+<%= link_to 'Editar', edit_subfamilia_path(@subfamilia) %> |
+<%= link_to 'Voltar', subfamilias_path %>

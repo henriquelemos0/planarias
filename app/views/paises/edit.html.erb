@@ -1,0 +1,16 @@
+<h1>Editando país</h1>
+
+<% form_for(@pais) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :nome %><br />
+    <%= f.text_field :nome %>
+  </p>
+  <p>
+    <%= f.submit 'Atualizar' %>
+  </p>
+<% end %>
+
+<%= link_to 'Ver', @pais %> |
+<%= link_to 'Voltar', paises_path %>

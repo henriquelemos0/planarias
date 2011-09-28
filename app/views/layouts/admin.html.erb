@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+  <title>Planárias Terrestres</title>
+  <%= stylesheet_link_tag "standard", :media => "all" %>
+</head>
+<body id="admin">
+  <div id="banner">
+
+    <%= @page_title || "Planárias Terrestres Neotropicais" %>
+  </div>
+  <div id="columns">
+    <div id="links">
+      <ul>
+        <li>
+          <h2><%= link_to 'Admin',   :controller => 'admin' %></h2>
+          <ul>
+            <li><%= link_to 'Espécies',   :controller => 'especies' %></li>
+            <br/>
+            <li><%= link_to 'Caracteristicas', :controller => 'caracteristicas' %></li>
+            <li><%= link_to 'Alternativas', :controller => 'alternativas' %></li>
+            <br/>
+            <li><%= link_to 'Países',    :controller => 'paises'    %></li>
+            <li><%= link_to 'Estados',    :controller => 'estados'    %></li>
+            <li><%= link_to 'Municípios',    :controller => 'municipios'    %></li>
+            <br/>
+            <li><%= link_to 'Artigos',    :controller => 'artigos'    %></li>
+            <br/>
+            <li><%= link_to 'Famílias',    :controller => 'familias'    %></li>
+            <li><%= link_to 'Subfamílias',    :controller => 'subfamilias'    %></li>
+            <li><%= link_to 'Generos',    :controller => 'generos'    %></li>
+          </ul>
+        </li>
+        <br/>
+      </ul>
+    </div>
+    <div id="main">
+      <%= yield :layout %>
+    </div>
+  </div>
+</body>
+</html>

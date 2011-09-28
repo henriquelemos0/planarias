@@ -1,0 +1,20 @@
+<h1>Listando países</h1>
+
+<table>
+  <tr>
+    <th>Nome</th>
+  </tr>
+
+<% @paises.each do |pais| %>
+  <tr>
+    <td><%=h pais.nome %></td>
+    <td><%= link_to 'Ver', pais %></td>
+    <td><%= link_to 'Editar', edit_pais_path(pais) %></td>
+    <td><%= link_to 'Excluir', pais, :confirm => 'Você tem certeza?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Criar país', new_pais_path %>

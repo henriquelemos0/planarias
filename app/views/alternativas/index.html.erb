@@ -1,0 +1,24 @@
+<h1>Listando Alternativa</h1>
+
+<table>
+  <tr>
+    <th>Caracteristica</th>
+    <th>Alternativa</th>
+    <th>Imagem</th>
+  </tr>
+
+<% @alternativas.each do |alternativa| %>
+  <tr>
+    <td><%=h alternativa.caracteristica.nome %></td>
+    <td><%=h alternativa.nome %></td>
+    <td><img src="<%= url_for(:action => 'imagem', :id => alternativa.id) %>" alt="<%alternativa.nome_imagem%>"/></td>
+    <td><%= link_to 'Ver', alternativa %></td>
+    <td><%= link_to 'Editar', edit_alternativa_path(alternativa) %></td>
+    <td><%= link_to 'Excluir', alternativa, :confirm => 'Você tem certeza?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Criar Alternativa', new_alternativa_path %>

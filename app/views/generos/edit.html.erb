@@ -1,0 +1,20 @@
+<h1>Editing genero</h1>
+
+<% form_for(@genero) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :nome %><br />
+    <%= f.text_field :nome %>
+  </p>
+  <p>
+    <%= f.label :subfamilia_id %><br />
+    <%= f.text_field :subfamilia_id %>
+  </p>
+  <p>
+    <%= f.submit 'Atualizar' %>
+  </p>
+<% end %>
+
+<%= link_to 'Ver', @genero %> |
+<%= link_to 'Voltar', generos_path %>

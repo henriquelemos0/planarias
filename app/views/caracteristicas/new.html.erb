@@ -1,0 +1,15 @@
+<h1>New caracteristica</h1>
+
+<% form_for(@caracteristica) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :nome %><br />
+    <%= f.text_field :nome, :size => 75 %>
+  </p>
+  <p>
+    <%= f.submit 'Criar' %>
+  </p>
+<% end %>
+
+<%= link_to 'Voltar', caracteristicas_path %>

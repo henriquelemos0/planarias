@@ -1,0 +1,247 @@
+/* Global styles */
+
+/* START:notice */
+#notice {
+  border: 2px solid red;
+  padding: 1em;
+  margin-bottom: 2em;
+  background-color: #f0f0f0;
+  font: bold smaller sans-serif;
+}
+/* END:notice */
+
+
+body {
+	text-align:center;
+}
+
+#admin {
+	width:1024px;
+	margin:0px auto;
+	text-align:left;
+	padding:5px;
+	}
+
+h1 {
+  font:  150% sans-serif;
+  color: #022a00;
+}
+
+h2 {
+	padding-left: 20px;
+	background: url(../images/img07.gif) no-repeat left center;
+	font-size: 22px;
+}
+
+a:link, a:visited {
+	color: #026a00;
+  text-decoration: none;
+}
+
+a:hover {
+	color: #029a00;
+}
+
+a:active {
+	text-decoration: none
+}
+
+/* START:mainlayout */
+/* Styles for main page */
+
+#banner {
+  /* background: #9c9; */
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid;
+  font: small-caps 40px/40px "Times New Roman", serif;
+  color: #282;
+  text-align: center;
+}
+
+#banner img {
+  float: left;
+}
+
+#columns {
+  background: #fff;
+}
+
+#main {
+  margin-left: 13em;
+  padding-top: 4ex;
+  padding-left: 2em;
+  background: white;
+}
+
+#side {
+  float: left;
+  padding-top: 1em;
+  padding-left: 1em;
+  padding-bottom: 1em;
+  width: 12em;
+  /*background: #dfffd8;*/
+}
+
+#side a {
+  color: #000;
+  font-size: small;
+  text-decoration: none;
+}
+
+/* Links */
+
+#links {
+	float: left;
+	width: 220px;
+}
+
+#links ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#links li ul {
+	padding: 15px 20px 30px 20px;
+	background: url(../images/img10.gif) repeat-x
+}
+
+#links li li {
+	padding: 3px 0;
+	background: url(../images/img03.gif) repeat-x left bottom;
+}
+
+#links li a {
+	background: none;
+}
+
+#links li i {
+	font-size: smaller;
+}
+/* END:mainlayout */
+
+
+/* The error box */
+
+.fieldWithErrors {
+  padding: 2px;
+  background-color: #EEFFEE;
+  display: inline;
+}
+
+.fieldWithErrors * {
+  background-color: red;
+}
+
+#errorExplanation {
+  width: 400px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#errorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 5px;
+}
+
+#errorExplanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+/* START:i18n */
+.locale {
+  float:right;
+  padding-top: 0.2em
+}
+/* END:i18n */
+
+
+/* "Winter Blues" CSS theme for CSS Table Gallery (http://icant.co.uk/csstablegallery/) by Gunta Klavina (http://www.klavina.com) */
+
+table {
+  font: 85% "Lucida Grande", "Lucida Sans Unicode", "Trebuchet MS", sans-serif;
+  padding: 0;
+  margin: 0;
+  border-collapse: collapse;
+  color: #333;
+  background: #f3f7f4;
+}
+
+table a {
+  color: #3A4856;
+  text-decoration: none;
+  border-bottom: 1px solid #C6C8CB;
+}
+
+table a:visited {
+  color: #777;
+}
+
+table a:hover {
+  color: #000;
+}
+
+table caption {
+  text-align: left;
+  text-transform: uppercase;
+  padding-bottom: 10px;
+  font: 200% "Lucida Grande", "Lucida Sans Unicode", "Trebuchet MS", sans-serif;
+}
+
+table thead th {
+  background: #3A4856;
+  padding: 15px 10px;
+  color: #fff;
+  text-align: left;
+  font-weight: normal;
+}
+
+table tbody, table thead {
+  border-left: 1px solid #eaeeec;
+  border-right: 1px solid #eaeeec;
+}
+
+table tbody {
+  border-bottom: 1px solid #eaeeec;
+}
+
+table tbody td, table tbody th {
+  padding: 10px;
+  /* background: url("td_back.gif") repeat-x; */
+  text-align: left;
+}
+
+table tbody tr {
+  background: #f3f7f4;
+}
+
+table tbody tr.odd {
+  background: #f0f4f1;
+}
+
+table tbody  tr:hover {
+  background: #eaeeec; color: #111;
+}
+
+table tfoot td, table tfoot th, table tfoot tr {
+  text-align: left; font: 120%  "Lucida Grande", "Lucida Sans Unicode", "Trebuchet MS", sans-serif;
+  text-transform: uppercase;
+  background: #fff;
+  padding: 10px;
+}

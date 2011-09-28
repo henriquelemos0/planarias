@@ -1,0 +1,13 @@
+<p>
+  <b>Legenda:</b>
+  <%=h @especie_imagem.legenda %>
+</p>
+
+<p>
+  <b>Imagem:</b><br />
+  <img src="<%= url_for(:action => 'imagem', :id => @especie_imagem.id) %>"/>
+</p>
+
+
+<%= link_to 'Editar', edit_especie_imagem_path(@especie_imagem) %> |
+<%= link_to "Voltar", :controller => 'especie_imagens', :action => 'index', :especie_id => @especie_imagem.especie_id %>

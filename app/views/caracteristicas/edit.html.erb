@@ -1,0 +1,16 @@
+<h1>Editing caracteristica</h1>
+
+<% form_for(@caracteristica) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :nome %><br />
+    <%= f.text_field :nome, :size => 75 %>
+  </p>
+  <p>
+    <%= f.submit 'Atualizar' %>
+  </p>
+<% end %>
+
+<%= link_to 'Ver', @caracteristica %> |
+<%= link_to 'Voltar', caracteristicas_path %>

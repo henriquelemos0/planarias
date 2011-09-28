@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  nome: MyString
+  legenda: MyString
+  content_type: MyString
+  data: 
+  especie_id: 1
+
+two:
+  nome: MyString
+  legenda: MyString
+  content_type: MyString
+  data: 
+  especie_id: 1

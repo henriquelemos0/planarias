@@ -1,0 +1,22 @@
+<h1>Listando especies</h1>
+
+<table>
+  <tr>
+    <th>Nome</th>
+    <th>Bibliografia</th>
+  </tr>
+
+<% @especies.each do |especie| %>
+  <tr>
+    <td><%=h especie.nome %></td>
+    <td><%=h especie.bibliografia %></td>
+    <td><%= link_to 'Ver', especie %></td>
+    <td><%= link_to 'Editar', edit_especie_path(especie) %></td>
+    <td><%= link_to 'Excluir', especie, :confirm => 'Você tem certeza?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Criar especie', new_especie_path %>

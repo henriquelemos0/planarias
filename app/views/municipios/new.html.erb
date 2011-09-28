@@ -1,0 +1,20 @@
+<h1>Criar município</h1>
+
+<% form_for(@municipio) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :nome %><br />
+    <%= f.text_field :nome %>
+  </p>
+  <p>
+    <%= f.label :estado_id %><br />
+    <%= @estados = Estado.find(:all, :order => "nome")
+        f.collection_select(:estado_id, @estados, :id, :nome, :prompt => "Escolha um estado") %>
+  </p>
+  <p>
+    <%= f.submit 'Criar' %>
+  </p>
+<% end %>
+
+<%= link_to 'Voltar', municipios_path %>

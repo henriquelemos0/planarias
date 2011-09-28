@@ -1,0 +1,19 @@
+<h1>New subfamilia</h1>
+
+<% form_for(@subfamilia) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :nome %><br />
+    <%= f.text_field :nome %>
+  </p>
+  <p>
+    <%= f.label :familia_id %><br />
+    <%= f.text_field :familia_id %>
+  </p>
+  <p>
+    <%= f.submit 'Criar' %>
+  </p>
+<% end %>
+
+<%= link_to 'Voltar', subfamilias_path %>

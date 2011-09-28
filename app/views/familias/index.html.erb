@@ -1,0 +1,20 @@
+<h1>Listing familias</h1>
+
+<table>
+  <tr>
+    <th>Nome</th>
+  </tr>
+
+<% @familias.each do |familia| %>
+  <tr>
+    <td><%=h familia.nome %></td>
+    <td><%= link_to 'Ver', familia %></td>
+    <td><%= link_to 'Editar', edit_familia_path(familia) %></td>
+    <td><%= link_to 'Excluir', familia, :confirm => 'Você tem certeza?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Criar familia', new_familia_path %>

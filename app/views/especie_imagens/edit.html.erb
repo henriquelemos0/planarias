@@ -1,0 +1,18 @@
+<h1>Editando imagem da espécie '<%= @especie_imagem.especie.nome  %>' </h1>
+<% form_for(@especie_imagem) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :legenda %><br />
+    <%= f.text_field :legenda %>
+  </p>
+  <p>
+    <img src="<%= url_for(:action => 'imagem', :id => @especie_imagem.id) %>" alt="<%=:nome%>"/>
+  </p>
+  <p>
+    <%= f.submit 'Atualizar' %>
+  </p>
+<% end %>
+
+<%= link_to 'Ver', @especie_imagem %> |
+<%= link_to 'Voltar', especie_imagens_path %>

@@ -1,0 +1,20 @@
+<h1>Criar estado</h1>
+
+<% form_for(@estado) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :nome %><br />
+    <%= f.text_field :nome %>
+  </p>
+  <p>
+    <%= f.label :pais_id %><br />
+    <%= @paises = Pais.find(:all, :order => "nome" )
+        f.collection_select(:pais_id, @paises, :id, :nome)%>
+  </p>
+  <p>
+    <%= f.submit 'Criar' %>
+  </p>
+<% end %>
+
+<%= link_to 'Votlar', estados_path %>

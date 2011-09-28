@@ -1,0 +1,25 @@
+<h1>Criar Alternativa</h1>
+
+<% form_for(:alternativa,
+          :url => {:action => 'create'},
+          :html => { :multipart => true }) do |f| %>
+
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :caracteristica_id %><br />
+    <%= @caracteristica = Caracteristica.find(:all, :order => "nome")
+        f.collection_select(:caracteristica_id, @caracteristica, :id, :nome, :prompt => "Escolha uma caracteristica") %>
+  </p>
+  <p>
+    <%= f.label :nome %><br />
+    <%= f.text_field :nome %>
+  </p>
+
+  Escolha a imagem: <%= f.file_field("imagem_enviada") %><br/>
+  
+  <%= submit_tag("Criar") %>
+
+<% end %>
+
+<%= link_to 'Voltar', alternativas_path %>

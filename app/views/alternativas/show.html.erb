@@ -1,0 +1,28 @@
+<p>
+  <b>Caracteristica:</b>
+  <%=h @caracteristica.nome %>
+</p>
+
+<p>
+  <b>Alternativa:</b>
+  <%=h @alternativa.nome %>
+</p>
+
+<p>
+  <b>Imagem: </b><br/>
+    <img src="<%= url_for(:action => 'imagem', :id => @alternativa.id) %>" alt="<%@alternativa.nome_imagem%>"/>
+</p>
+
+<p>
+  <b>Nome da imagem:</b>
+  <%=h @alternativa.nome_imagem %>
+</p>
+
+<p>
+  <b>Content type:</b>
+  <%=h @alternativa.content_type %>
+</p>
+
+
+<%= link_to 'Editar', edit_alternativa_path(@alternativa) %> |
+<%= link_to 'Voltar', alternativas_path %>

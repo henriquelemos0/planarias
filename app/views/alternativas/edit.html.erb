@@ -1,0 +1,31 @@
+<h1>Editando Alternativa</h1>
+
+<% form_for(:alternativa,
+          :url => {:action => 'update'},
+          :html => { :multipart => true }) do |f| %>
+
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :nome %><br />
+    <%= f.text_field :nome %>
+  </p>
+  <p>
+    <%= f.label :caracteristica_id %><br />
+    <% @caracteristicas = Caracteristica.find(:all, :order => "nome")%>
+    <%= f.collection_select(:caracteristica_id, @caracteristicas, :id, :nome) %>
+  </p>
+  <p>
+  Imagem: <br/>
+    <img src="<%= url_for(:action => 'imagem', :id => @alternativa.id) %>" alt="<%@alternativa.nome_imagem%>"/>
+  </p>
+  <p>
+    Eviar nova imagem: <%= f.file_field("imagem_enviada") %><br/>
+  </p>
+  <p>
+    <%= submit_tag("Atualizar") %>
+  </p>
+<% end %>
+
+<%= link_to 'Ver', @alternativa %> |
+<%= link_to 'Voltar', alternativas_path %>
