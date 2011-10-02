@@ -1,0 +1,27 @@
+<h1>Espécie <%= @especie.nome %> </h1>
+
+<b>Artigos onde a espécie é encontrada:</b>
+<% if @artigos.size.zero? %>
+  <br />
+  <p> Nenhum.</p>
+<% else %>
+  <table>
+  <% for artigo in @artigos%>
+    <tr>
+      <td><%=h artigo.nome %></td>
+      <td><%= link_to 'Excluir', :controller => 'especies_artigos', :confirm => 'Você tem certeza?', :action => :destroy, :especie_id => @especie.id, :artigo_id => artigo.id %></td>
+    </tr>
+  <% end %>
+  </table>
+<%end%>
+<br />
+<p><b>Adicionar artigo à lista:</b><br />
+<%= form_tag :action => 'create', :especie_id => params[:id] %>
+   <%=@artigos = Artigo.find(:all, :order => "nome")
+      collection_select(:artigo_id, :id, @artigos, :id, :nome, :prompt => "Escolha um artigo")%>
+
+   <%= submit_tag 'Adicionar'%>
+
+</p>
+
+<%= link_to 'Voltar', edit_especie_path(@especie) %>

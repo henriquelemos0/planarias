@@ -1,0 +1,13 @@
+<h1>Espécie <%= @especie.nome %> </h1>
+
+<b>Genero:</b>
+<br />
+<%= form_tag :action => 'update', :especie_id => params[:especie_id] %>
+   <%=@generos = Genero.find(:all, :order => "nome")
+      collection_select(:genero_id, :id, @generos, :id, :nome, :prompt => "Escolha um gênero")%>
+
+   <%= submit_tag 'Alterar'%>
+
+<br />
+<br />
+<%= link_to 'Voltar', edit_especie_path(@especie) %>
