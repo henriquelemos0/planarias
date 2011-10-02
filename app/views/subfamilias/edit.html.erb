@@ -1,4 +1,4 @@
-<h1>Editing subfamilia</h1>
+<h1>Editando subfamília</h1>
 
 <% form_for(@subfamilia) do |f| %>
   <%= f.error_messages %>
@@ -9,7 +9,8 @@
   </p>
   <p>
     <%= f.label :familia_id %><br />
-    <%= f.text_field :familia_id %>
+    <%= @familias = Familia.find(:all, :order => "nome" )
+        f.collection_select(:familia_id, @familias, :id, :nome)%>
   </p>
   <p>
     <%= f.submit 'Atualizar' %>

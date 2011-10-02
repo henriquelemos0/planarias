@@ -1,15 +1,17 @@
 <h1>Listando artigos</h1>
 
+<% if @artigos.size.zero? %>
+  <br />
+  <p> Nenhum artigo cadastrado.</p>
+<% else %>
 <table>
   <tr>
     <th>Nome</th>
-    <th>Link</th>
   </tr>
 
 <% @artigos.each do |artigo| %>
   <tr>
-    <td><%=h artigo.nome %></td>
-    <td><%=h artigo.link %></td>
+    <td><%= link_to artigo.nome, artigo.link, :target => '_blank' %></td>
     <td><%= link_to 'Ver', artigo %></td>
     <td><%= link_to 'Editar', edit_artigo_path(artigo) %></td>
     <td><%= link_to 'Excluir', artigo, :confirm => 'Você tem certeza?', :method => :delete %></td>
@@ -17,6 +19,8 @@
 <% end %>
 </table>
 
+<%end%>
+  
 <br />
 
 <%= link_to 'Criar artigo', new_artigo_path %>

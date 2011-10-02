@@ -2,7 +2,7 @@ class GenerosController < ApplicationController
   # GET /generos
   # GET /generos.xml
   def index
-    @generos = Genero.all
+    @generos = Genero.find(:all, :include => [:subfamilia], :order => "subfamilias.nome, generos.nome")
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,6 +14,8 @@ class GenerosController < ApplicationController
   # GET /generos/1.xml
   def show
     @genero = Genero.find(params[:id])
+    @subfamilia = Subfamilia.find(@genero.subfamilia_id)
+    @familia = Familia.find(@subfamilia.familia_id)
 
     respond_to do |format|
       format.html # show.html.erb
@@ -44,7 +46,7 @@ class GenerosController < ApplicationController
 
     respond_to do |format|
       if @genero.save
-        flash[:notice] = 'Genero foi criado(a) com sucesso.'
+        flash[:notice] = 'Gênero foi criado(a) com sucesso.'
         format.html { redirect_to(@genero) }
         format.xml  { render :xml => @genero, :status => :created, :location => @genero }
       else
@@ -61,7 +63,7 @@ class GenerosController < ApplicationController
 
     respond_to do |format|
       if @genero.update_attributes(params[:genero])
-        flash[:notice] = 'Genero foi atualizado(a) com sucesso.'
+        flash[:notice] = 'Gênero foi atualizado(a) com sucesso.'
         format.html { redirect_to(@genero) }
         format.xml  { head :ok }
       else

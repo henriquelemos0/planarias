@@ -5,4 +5,7 @@ class Municipio < ActiveRecord::Base
 
   validates_presence_of :nome
 
+  def pais
+    municipio.estado.pais
+  end
 end

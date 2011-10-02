@@ -1,5 +1,10 @@
 <h1>Listando países</h1>
 
+<% if @paises.size.zero? %>
+  <br />
+  <p> Nenhum país cadastrado.</p>
+<% else %>
+
 <table>
   <tr>
     <th>Nome</th>
@@ -15,6 +20,8 @@
 <% end %>
 </table>
 
+<%end%>
+  
 <br />
 
 <%= link_to 'Criar país', new_pais_path %>

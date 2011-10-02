@@ -1,5 +1,9 @@
 <h1>Listando estados</h1>
 
+<% if @estados.size.zero? %>
+  <br />
+  <p> Nenhum estado cadastrado.</p>
+<% else %>
 <table>
   <tr>
     <th>País</th>
@@ -17,6 +21,7 @@
 <% end %>
 </table>
 
+<%end%>
 <br />
 
 <%= link_to 'Criar estado', new_estado_path %>

@@ -1,4 +1,4 @@
-<h1>Editing genero</h1>
+<h1>Editidando gênero</h1>
 
 <% form_for(@genero) do |f| %>
   <%= f.error_messages %>
@@ -9,7 +9,8 @@
   </p>
   <p>
     <%= f.label :subfamilia_id %><br />
-    <%= f.text_field :subfamilia_id %>
+    <%= @subfamilias = Subfamilia.find(:all, :order => "nome" )
+        f.collection_select(:subfamilia_id, @subfamilias, :id, :nome)%>
   </p>
   <p>
     <%= f.submit 'Atualizar' %>

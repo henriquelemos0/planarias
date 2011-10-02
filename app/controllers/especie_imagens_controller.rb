@@ -71,7 +71,7 @@ class EspecieImagensController < ApplicationController
 
     respond_to do |format|
       if @especie_imagem.update_attributes(params[:especie_imagem])
-        flash[:notice] = 'EspecieImagem foi atualizado(a) com sucesso.'
+        flash[:notice] = 'Imagem foi atualizado(a) com sucesso.'
         format.html { redirect_to(@especie_imagem) }
         format.xml  { head :ok }
       else

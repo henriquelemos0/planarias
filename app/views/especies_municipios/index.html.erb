@@ -1,15 +1,20 @@
 <h1>Espécie <%= @especie.nome %> </h1>
 
 <b>Municípios onde a espécie é encontrada:</b>
-<table>
-<% for municipio in @municipios%>
-  <tr>
-    <td><%=h municipio.nome %></td>
-    <td><%= link_to 'Excluir', :controller => 'especies_municipios', :confirm => 'Você tem certeza?', :action => :destroy, :especie_id => @especie.id, :municipio_id => municipio.id %></td>
-  </tr>
-<% end %>
-</table>
-
+<% if @municipios.size.zero? %>
+  <br />
+  <p> Nenhum.</p>
+<% else %>
+  <table>
+  <% for municipio in @municipios%>
+    <tr>
+      <td><%=h municipio.nome %></td>
+      <td><%= link_to 'Excluir', :controller => 'especies_municipios', :confirm => 'Você tem certeza?', :action => :destroy, :especie_id => @especie.id, :municipio_id => municipio.id %></td>
+    </tr>
+  <% end %>
+  </table>
+<%end%>
+<br />
 <p><b>Adicionar município à lista:</b><br />
 <%= form_tag :action => 'create', :especie_id => params[:id] %>
    <%=@municipios = Municipio.find(:all, :order => "nome")

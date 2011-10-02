@@ -2,7 +2,7 @@ class SubfamiliasController < ApplicationController
   # GET /subfamilias
   # GET /subfamilias.xml
   def index
-    @subfamilias = Subfamilia.all
+    @subfamilias = Subfamilia.find(:all, :include => [:familia], :order => "familias.nome, subfamilias.nome")
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,6 +14,7 @@ class SubfamiliasController < ApplicationController
   # GET /subfamilias/1.xml
   def show
     @subfamilia = Subfamilia.find(params[:id])
+    @familia = Familia.find(@subfamilia.familia_id)
 
     respond_to do |format|
       format.html # show.html.erb
@@ -44,7 +45,7 @@ class SubfamiliasController < ApplicationController
 
     respond_to do |format|
       if @subfamilia.save
-        flash[:notice] = 'Subfamilia foi criado(a) com sucesso.'
+        flash[:notice] = 'Subfamília foi criado(a) com sucesso.'
         format.html { redirect_to(@subfamilia) }
         format.xml  { render :xml => @subfamilia, :status => :created, :location => @subfamilia }
       else
@@ -61,7 +62,7 @@ class SubfamiliasController < ApplicationController
 
     respond_to do |format|
       if @subfamilia.update_attributes(params[:subfamilia])
-        flash[:notice] = 'Subfamilia foi atualizado(a) com sucesso.'
+        flash[:notice] = 'Subfamília foi atualizado(a) com sucesso.'
         format.html { redirect_to(@subfamilia) }
         format.xml  { head :ok }
       else

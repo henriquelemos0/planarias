@@ -44,7 +44,7 @@ class CaracteristicasController < ApplicationController
 
     respond_to do |format|
       if @caracteristica.save
-        flash[:notice] = 'Caracteristica foi criado(a) com sucesso.'
+        flash[:notice] = 'Característica foi criado(a) com sucesso.'
         format.html { redirect_to(@caracteristica) }
         format.xml  { render :xml => @caracteristica, :status => :created, :location => @caracteristica }
       else
@@ -61,7 +61,7 @@ class CaracteristicasController < ApplicationController
 
     respond_to do |format|
       if @caracteristica.update_attributes(params[:caracteristica])
-        flash[:notice] = 'Caracteristica foi atualizado(a) com sucesso.'
+        flash[:notice] = 'Característica foi atualizado(a) com sucesso.'
         format.html { redirect_to(@caracteristica) }
         format.xml  { head :ok }
       else

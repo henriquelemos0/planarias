@@ -1,5 +1,9 @@
 <h1>Listando municípios</h1>
 
+<% if @municipios.size.zero? %>
+  <br />
+  <p> Nenhum município cadastrado.</p>
+<% else %>
 <table>
   <tr>
     <th>País</th>
@@ -19,6 +23,8 @@
 <% end %>
 </table>
 
+<%end%>
+  
 <br />
 
 <%= link_to 'Criar municipio', new_municipio_path %>

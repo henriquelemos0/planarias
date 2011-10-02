@@ -1,5 +1,9 @@
-<h1>Listing familias</h1>
+<h1>Listando famílias</h1>
 
+<% if @familias.size.zero? %>
+  <br />
+  <p> Nenhuma família cadastrada.</p>
+<% else %>
 <table>
   <tr>
     <th>Nome</th>
@@ -15,6 +19,7 @@
 <% end %>
 </table>
 
+<%end%>
 <br />
 
-<%= link_to 'Criar familia', new_familia_path %>
+<%= link_to 'Criar família', new_familia_path %>

@@ -44,7 +44,7 @@ class PaisesController < ApplicationController
 
     respond_to do |format|
       if @pais.save
-        flash[:notice] = 'País was successfully created.'
+        flash[:notice] = 'País foi criado com sucesso.'
         format.html { redirect_to(@pais) }
         format.xml  { render :xml => @pais, :status => :created, :location => @pais }
       else
@@ -61,7 +61,7 @@ class PaisesController < ApplicationController
 
     respond_to do |format|
       if @pais.update_attributes(params[:pais])
-        flash[:notice] = 'País was successfully updated.'
+        flash[:notice] = 'País foi atualizado com sucesso.'
         format.html { redirect_to(@pais) }
         format.xml  { head :ok }
       else

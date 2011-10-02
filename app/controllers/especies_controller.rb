@@ -16,6 +16,8 @@ class EspeciesController < ApplicationController
     @especie = Especie.find(params[:id])
     @municipios = @especie.municipios
     @especie_imagens = @especie.especie_imagens
+    @genero = @especie.generos
+    @artigos = @especie.artigos
     
     respond_to do |format|
       format.html # show.html.erb
@@ -39,6 +41,8 @@ class EspeciesController < ApplicationController
     @especie = Especie.find(params[:id])
     @municipios = @especie.municipios
     @especie_imagens = @especie.especie_imagens
+    @genero = @especie.generos
+    @artigos = @especie.artigos
   end
 
   # POST /especies
@@ -48,7 +52,7 @@ class EspeciesController < ApplicationController
 
     respond_to do |format|
       if @especie.save
-        flash[:notice] = 'Especie was successfully created.'
+        flash[:notice] = 'Espécie foi criada com sucesso.'
         format.html { redirect_to(@especie) }
         format.xml  { render :xml => @especie, :status => :created, :location => @especie }
       else
@@ -65,7 +69,7 @@ class EspeciesController < ApplicationController
 
     respond_to do |format|
       if @especie.update_attributes(params[:especie])
-        flash[:notice] = 'Especie was successfully updated.'
+        flash[:notice] = 'Espécie foi atualizada com sucesso.'
         format.html { redirect_to(@especie) }
         format.xml  { head :ok }
       else

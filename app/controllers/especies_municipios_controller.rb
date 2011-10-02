@@ -36,8 +36,8 @@ class EspeciesMunicipiosController < ApplicationController
     especie.municipios.delete(municipio)
 
     respond_to do |format|
+      flash[:notice] = "Município excluído com sucesso."
       format.html { redirect_to(:back) }
-      #redirect_to :action => "edit", :id => 7
       format.xml  { head :ok }
     end
   end

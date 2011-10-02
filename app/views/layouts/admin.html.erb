@@ -29,13 +29,16 @@
             <br/>
             <li><%= link_to 'Famílias',    :controller => 'familias'    %></li>
             <li><%= link_to 'Subfamílias',    :controller => 'subfamilias'    %></li>
-            <li><%= link_to 'Generos',    :controller => 'generos'    %></li>
+            <li><%= link_to 'Gêneros',    :controller => 'generos'    %></li>
           </ul>
         </li>
         <br/>
       </ul>
     </div>
     <div id="main">
+      <% if flash[:notice] -%>
+        <div id="notice"><%= flash[:notice] %></div>
+      <% end -%>
       <%= yield :layout %>
     </div>
   </div>

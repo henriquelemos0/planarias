@@ -1,5 +1,9 @@
 <h1>Listando especies</h1>
 
+<% if @especies.size.zero? %>
+  <br />
+  <p> Nenhuma espécie cadastrada.</p>
+<% else %>
 <table>
   <tr>
     <th>Nome</th>
@@ -16,7 +20,7 @@
   </tr>
 <% end %>
 </table>
-
+<%end%>
 <br />
 
 <%= link_to 'Criar especie', new_especie_path %>

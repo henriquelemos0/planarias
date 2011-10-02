@@ -2,8 +2,8 @@ class MunicipiosController < ApplicationController
   # GET /municipios
   # GET /municipios.xml
   def index
-    @municipios = Municipio.find(:all, :include => [:estado, :pais] , :order => "estados.nome, municipios.nome")
-
+    @municipios = Municipio.all
+    
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @municipios }
@@ -44,7 +44,7 @@ class MunicipiosController < ApplicationController
 
     respond_to do |format|
       if @municipio.save
-        flash[:notice] = 'Municipio was successfully created.'
+        flash[:notice] = 'Município foi criado com sucesso.'
         format.html { redirect_to(@municipio) }
         format.xml  { render :xml => @municipio, :status => :created, :location => @municipio }
       else
@@ -61,7 +61,7 @@ class MunicipiosController < ApplicationController
 
     respond_to do |format|
       if @municipio.update_attributes(params[:municipio])
-        flash[:notice] = 'Municipio was successfully updated.'
+        flash[:notice] = 'Município foi atualizado com sucesso.'
         format.html { redirect_to(@municipio) }
         format.xml  { head :ok }
       else

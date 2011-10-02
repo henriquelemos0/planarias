@@ -1,5 +1,9 @@
-<h1>Listing caracteristicas</h1>
+<h1>Listando características</h1>
 
+<% if @caracteristicas.size.zero? %>
+  <br />
+  <p> Nenhuma característica cadastrada.</p>
+<% else %>
 <table>
   <tr>
     <th>Nome</th>
@@ -15,6 +19,7 @@
 <% end %>
 </table>
 
+<%end%>
 <br />
 
 <%= link_to 'Criar caracteristica', new_caracteristica_path %>

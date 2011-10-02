@@ -1,5 +1,9 @@
 <h1>Listando Alternativa</h1>
 
+<% if @alternativas.size.zero? %>
+  <br />
+  <p> Nenhuma alternativa cadastrada.</p>
+<% else %>
 <table>
   <tr>
     <th>Caracteristica</th>
@@ -19,6 +23,8 @@
 <% end %>
 </table>
 
-<br />
+<%end%>
+
+  <br />
 
 <%= link_to 'Criar Alternativa', new_alternativa_path %>

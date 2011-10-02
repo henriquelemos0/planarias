@@ -12,36 +12,64 @@
     <%= f.text_area :bibliografia, :cols => 90, :rows => 15 %>
   </p>
   <br />
+  <p>
+    <b><%= f.label "Gênero" %></b> <%= link_to "Alterar", :controller => "especie_genero", :action => 'edit', :especie_id => @especie %>  <br />
+    <%= @especie.generos.first.nome %>
+  </p>
+  <br/>
   <b>Características</b>
   <br />
   <%= link_to "Alterar(Atualizar)", :controller => 'especie_alternativas', :action => 'index', :especie_id => @especie %>
   <br />
+  <br />
   <p>
     <b>Municípios onde a espécie é encontrada: </b><%= link_to "Adicionar/Excluir", :controller => 'especies_municipios', :action => 'index', :id => @especie %>
-    <%for municipios in @municipios%>
-        <li>
-          <%= municipios.nome %>
-        </li>
+    <% if @municipios.size.zero? %>
+      <p> Nenhum.</p>
+    <%else%>
+      <%for municipios in @municipios%>
+          <li>
+            <%= municipios.nome %>
+          </li>
+      <%end%>
     <%end%>
   </p>
-    <p>
-    <b>Imagens: </b><%= link_to "Adicionar/Excluir", :controller => 'especie_imagens', :action => 'index', :especie_id => @especie %>
-    <% if @especie_imagens.size.zero? %>
-      <p> Nenhuma imagem encontrada.</p>
-    <% else %>
-      <%for especie_imagem in @especie_imagens%>
-          <li>
-            <%= especie_imagem.legenda %><br/>
-            <img src="<%= url_for(:controller => 'especie_imagens', :action => 'imagem', :id => especie_imagem.id) %>" alt="<%=especie_imagem.nome%>"/>
-          </li>
-      <% end %>
-    <% end %>
-    </p>
   <br />
+  <p>
+  <b>Imagens: </b><%= link_to "Adicionar/Excluir", :controller => 'especie_imagens', :action => 'index', :especie_id => @especie %>
+  <% if @especie_imagens.size.zero? %>
+    <p> Nenhuma imagem cadastrada.</p>
+  <% else %>
+    <%for especie_imagem in @especie_imagens%>
+        <li>
+          <%= especie_imagem.legenda %><br/>
+          <img src="<%= url_for(:controller => 'especie_imagens', :action => 'imagem', :id => especie_imagem.id) %>" alt="<%=especie_imagem.nome%>"/>
+        </li>
+    <% end %>
+  <% end %>
+  </p>
+  <br />
+  <p>
+    <b>Artigos onde a espécie é citada: </b><%= link_to "Adicionar/Excluir", :controller => 'especies_artigos', :action => 'index', :id => @especie %>
+    <% if @artigos.size.zero? %>
+      <p> Nenhum.</p>
+    <%else%>
+      <%for artigos in @artigos%>
+        <li>
+           <%= artigos.nome %>
+        </li>
+      <%end%>
+    <%end%>
+  </p>
+
+<br/>
+
   <p>
     <%= f.submit 'Atualizar' %>
   </p>
 <% end %>
+
+<br/>
 
 <%= link_to 'Ver', @especie %> |
 <%= link_to 'Voltar', especies_path %>

@@ -1,15 +1,20 @@
-<h1>Listing subfamilias</h1>
+<h1>Listando subfamílias</h1>
 
-<table>
+<% if @subfamilias.size.zero? %>
+  <br />
+  <p> Nenhuma subfamília cadastrada.</p>
+<% else %>
+
+  <table>
   <tr>
-    <th>Nome</th>
-    <th>Familia</th>
+    <th>Família</th>
+    <th>Subfamília</th>
   </tr>
 
 <% @subfamilias.each do |subfamilia| %>
   <tr>
+    <td><%=h subfamilia.familia.nome %></td>
     <td><%=h subfamilia.nome %></td>
-    <td><%=h subfamilia.familia_id %></td>
     <td><%= link_to 'Ver', subfamilia %></td>
     <td><%= link_to 'Editar', edit_subfamilia_path(subfamilia) %></td>
     <td><%= link_to 'Excluir', subfamilia, :confirm => 'Você tem certeza?', :method => :delete %></td>
@@ -17,6 +22,7 @@
 <% end %>
 </table>
 
+<%end%>
 <br />
 
-<%= link_to 'Criar subfamilia', new_subfamilia_path %>
+<%= link_to 'Criar subfamília', new_subfamilia_path %>

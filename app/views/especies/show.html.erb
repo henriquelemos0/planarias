@@ -8,24 +8,52 @@
   <%=h @especie.bibliografia %>
 </p>
 
-<p>
-  <b>Municípios onde a espécie é encontrada:</b>
-  <%for municipios in @municipios%>
-      <li>
-        <%= municipios.nome %>
-      </li>
-  <%end%>
-</p>
-
-<p>
+<br />
+  <p>
+    <b>Gênero:</b><%= @especie.generos.first.nome %>
+  </p>
+  <br/>
+  <p>
+    <b>Municípios onde a espécie é encontrada: </b>
+    <% if @municipios.size.zero? %>
+      <p> Nenhum.</p>
+    <%else%>
+      <%for municipios in @municipios%>
+          <li>
+            <%= municipios.nome %>
+          </li>
+      <%end%>
+    <%end%>
+  </p>
+  <br />
+  <p>
   <b>Imagens: </b>
-  <%for especie_imagem in @especie_imagens%>
-      <li>
-        <%= especie_imagem.legenda %><br/>
-        <img src="<%= url_for(:controller => 'especie_imagens', :action => 'imagem', :id => especie_imagem.id) %>" alt="<%=especie_imagem.nome%>"/>
-      </li>
-  <%end%>
-</p>
+  <% if @especie_imagens.size.zero? %>
+    <p> Nenhuma imagem cadastrada.</p>
+  <% else %>
+    <%for especie_imagem in @especie_imagens%>
+        <li>
+          <%= especie_imagem.legenda %><br/>
+          <img src="<%= url_for(:controller => 'especie_imagens', :action => 'imagem', :id => especie_imagem.id) %>" alt="<%=especie_imagem.nome%>"/>
+        </li>
+    <% end %>
+  <% end %>
+  </p>
+  <br />
+  <p>
+    <b>Artigos onde a espécie é citada: </b>
+    <% if @artigos.size.zero? %>
+      <p> Nenhum.</p>
+    <%else%>
+      <%for artigos in @artigos%>
+        <li>
+           <%= artigos.nome %>
+        </li>
+      <%end%>
+    <%end%>
+  </p>
+
+<br/>
 
 
 <%= link_to 'Editar', edit_especie_path(@especie) %> |
