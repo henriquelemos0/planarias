@@ -10,7 +10,8 @@
 
 <br />
   <p>
-    <b>Gênero:</b><%= @especie.generos.first.nome %>
+    <b>Gênero:</b>
+    <%= @especie.generos.first.nil? ? "Não definido" : @especie.generos.first.nome %>
   </p>
   <br/>
   <p>

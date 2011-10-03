@@ -13,9 +13,9 @@
 
 <% @generos.each do |genero| %>
   <tr>
-    <td><%=h genero.subfamilia.familia.nome %></td>
-    <td><%=h genero.subfamilia.nome %></td>
-    <td><%=h genero.nome %></td>
+    <td><%=h genero[0] %></td>
+    <td><%=h genero[1] %></td>
+    <td><%=h genero[2] %></td>
     <td><%= link_to 'Ver', genero %></td>
     <td><%= link_to 'Editar', edit_genero_path(genero) %></td>
     <td><%= link_to 'Excluir', genero, :confirm => 'Você tem certeza?', :method => :delete %></td>

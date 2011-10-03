@@ -1,4 +1,4 @@
-class EspeciesArtigosController < ApplicationController
+class ArtigosEspeciesController < ApplicationController
 
   def index
     @especie = Especie.find(params[:id])
@@ -32,14 +32,13 @@ class EspeciesArtigosController < ApplicationController
   def destroy
     especie = Especie.find(params[:especie_id])
     artigo = Artigo.find(params[:artigo_id])
-
+    
     especie.artigos.delete(artigo)
 
     respond_to do |format|
-      flash[:notice] = "Artigo excluído com sucesso."
+      flash[:notice] = 'Artigo excluído com sucesso.'
       format.html { redirect_to(:back) }
       format.xml  { head :ok }
     end
   end
-
 end

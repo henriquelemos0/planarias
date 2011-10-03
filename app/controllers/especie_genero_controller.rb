@@ -16,7 +16,7 @@ class EspecieGeneroController < ApplicationController
     @genero = Genero.find(params[:genero_id][:id])
 
     if !@especie.generos.empty?
-      @genero.especies.delete(@especie)
+      @especie.generos.each(&:destroy)
     end
 
     @especie.generos.push(@genero)

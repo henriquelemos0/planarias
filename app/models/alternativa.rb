@@ -1,7 +1,12 @@
 class Alternativa < ActiveRecord::Base
 
   belongs_to :caracteristica
-  has_and_belongs_to_many :especie
+  has_and_belongs_to_many :especies
+
+  validates_presence_of :nome
+  validates_presence_of :caracteristica_id
+
+  validates_uniqueness_of :nome, :scope => [:caracteristica_id]
 
   #validates_format_of :content_type,
   #                    :with => %r{/^image|/}i,

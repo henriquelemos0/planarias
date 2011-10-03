@@ -75,9 +75,20 @@ class ArtigosController < ApplicationController
   # DELETE /artigos/1.xml
   def destroy
     @artigo = Artigo.find(params[:id])
-    @artigo.destroy
+    @especie = @artigo.especies
+
+    @destroyed = false
+    if @especie.first.nil?
+      @artigo.destroy
+      @destroyed = true
+    end
 
     respond_to do |format|
+      if @destroyed
+        flash[:notice] = 'Artigo excluído com sucesso.'
+      else
+        flash[:notice] = 'O artigo não pode ser excluído devido a relação com a espécie ' + @especie.first.nome
+      end
       format.html { redirect_to(artigos_url) }
       format.xml  { head :ok }
     end

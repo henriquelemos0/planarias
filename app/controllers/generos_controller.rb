@@ -2,7 +2,11 @@ class GenerosController < ApplicationController
   # GET /generos
   # GET /generos.xml
   def index
-    @generos = Genero.find(:all, :include => [:subfamilia], :order => "subfamilias.nome, generos.nome")
+    sql = "SELECT Familias.nome, Subfamilias.nome, Generos.nome, Generos.id "
+    sql += "FROM Familias, Subfamilias, Generos "
+    sql += "WHERE Familias.id = Subfamilias.familia_id and Subfamilias.id = Generos.subfamilia_id "
+    sql += "ORDER BY Familias.nome, Subfamilias.nome, Generos.nome"
+    @generos = Genero.connection.execute(sql)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -77,9 +81,20 @@ class GenerosController < ApplicationController
   # DELETE /generos/1.xml
   def destroy
     @genero = Genero.find(params[:id])
-    @genero.destroy
+    @especie = @genero.especies
+
+    @destroyed = false
+    if @especie.first.nil?
+      @genero.destroy
+      @destroyed = true
+    end
 
     respond_to do |format|
+      if @destroyed
+        flash[:notice] = 'Gênero excluído com sucesso.'
+      else
+        flash[:notice] = 'O gênero não pode ser excluído devido a relação com a espécie ' + @especie.first.nome
+      end
       format.html { redirect_to(generos_url) }
       format.xml  { head :ok }
     end

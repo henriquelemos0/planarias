@@ -1,7 +1,11 @@
 class EspecieImagem < ActiveRecord::Base
 
   belongs_to :especie
-  
+
+  validates_presence_of :nome
+  validates_presence_of :content_type
+  validates_presence_of :data
+
   validates_format_of :content_type,
                       :with => /^image/,
                       :message => "--- you can only upload pictures"

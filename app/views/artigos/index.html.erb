@@ -12,9 +12,9 @@
 <% @artigos.each do |artigo| %>
   <tr>
     <td><%= link_to artigo.nome, artigo.link, :target => '_blank' %></td>
-    <td><%= link_to 'Ver', artigo %></td>
-    <td><%= link_to 'Editar', edit_artigo_path(artigo) %></td>
-    <td><%= link_to 'Excluir', artigo, :confirm => 'Você tem certeza?', :method => :delete %></td>
+    <td><%= button_to 'Ver', artigo %></td>
+    <td><%= button_to 'Editar', edit_artigo_path(artigo) %></td>
+    <td><%= button_to 'Excluir', artigo, :confirm => 'Você tem certeza?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

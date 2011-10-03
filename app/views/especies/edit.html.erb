@@ -14,12 +14,12 @@
   <br />
   <p>
     <b><%= f.label "Gênero" %></b> <%= link_to "Alterar", :controller => "especie_genero", :action => 'edit', :especie_id => @especie %>  <br />
-    <%= @especie.generos.first.nome %>
+    <%= @especie.generos.first.nil? ? "Não definido" : @especie.generos.first.nome %>
   </p>
   <br/>
   <b>Características</b>
   <br />
-  <%= link_to "Alterar(Atualizar)", :controller => 'especie_alternativas', :action => 'index', :especie_id => @especie %>
+  <%= link_to "Alterar(Atualizar)", :controller => 'alternativas_especies', :action => 'edit', :especie_id => @especie %>
   <br />
   <br />
   <p>
@@ -50,7 +50,7 @@
   </p>
   <br />
   <p>
-    <b>Artigos onde a espécie é citada: </b><%= link_to "Adicionar/Excluir", :controller => 'especies_artigos', :action => 'index', :id => @especie %>
+    <b>Artigos onde a espécie é citada: </b><%= link_to "Adicionar/Excluir", :controller => 'artigos_especies', :action => 'index', :id => @especie %>
     <% if @artigos.size.zero? %>
       <p> Nenhum.</p>
     <%else%>

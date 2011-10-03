@@ -75,10 +75,21 @@ class SubfamiliasController < ApplicationController
   # DELETE /subfamilias/1
   # DELETE /subfamilias/1.xml
   def destroy
-    @subfamilia = Subfamilia.find(params[:id])
-    @subfamilia.destroy
+    @subfamlia = Subfamilia.find(params[:id])
+    @generos = @subfamilia.generos
+
+    @destroyed = false
+    if @generos.first.nil?
+      @subfamilia.destroy
+      @destroyed = true
+    end
 
     respond_to do |format|
+      if @destroyed
+        flash[:notice] = 'Subfamília excluído com sucesso.'
+      else
+        flash[:notice] = 'O subfamília não pode ser excluído devido a relação com o gênero ' + @genero.first.nome
+      end
       format.html { redirect_to(subfamilias_url) }
       format.xml  { head :ok }
     end

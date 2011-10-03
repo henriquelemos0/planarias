@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111002182410) do
+ActiveRecord::Schema.define(:version => 20111003084156) do
 
   create_table "alternativas", :force => true do |t|
     t.string   "nome",              :null => false
@@ -17,6 +17,13 @@ ActiveRecord::Schema.define(:version => 20111002182410) do
     t.string   "nome_imagem"
     t.string   "content_type"
     t.binary   "imagem"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "alternativas_especies", :id => false, :force => true do |t|
+    t.integer  "especie_id",     :null => false
+    t.integer  "alternativa_id", :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -54,13 +61,6 @@ ActiveRecord::Schema.define(:version => 20111002182410) do
   create_table "especies", :force => true do |t|
     t.string   "nome"
     t.text     "bibliografia"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "especies_alternativas", :force => true do |t|
-    t.integer  "especie_id",     :null => false
-    t.integer  "alternativa_id", :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

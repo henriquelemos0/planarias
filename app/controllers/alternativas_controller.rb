@@ -11,8 +11,7 @@ class AlternativasController < ApplicationController
   # GET /alternativas
   # GET /alternativas.xml
   def index
-    @alternativas = Alternativa.all
-    @caracteristicas = Caracteristica.all
+    @alternativas = Alternativa.find(:all, :include => [:caracteristica], :order => "Caracteristicas.nome, Alternativas.nome")
 
     respond_to do |format|
       format.html # index.html.erb
@@ -85,12 +84,23 @@ class AlternativasController < ApplicationController
   # DELETE /alternativas/1
   # DELETE /alternativas/1.xml
   def destroy
-    @alternativa = Alternativa.find(params[:id])
-    @alternativa.destroy
+    @alternativas = Alternativa.find(params[:id])
+    @especie = @alternativas.especies
+
+    @destroyed = false
+    if @especie.first.nil?
+      @alternativas.destroy
+      @destroyed = true
+    end
 
     respond_to do |format|
+      if @destroyed
+        flash[:notice] = 'Alternativa excluída com sucesso.'
+      else
+        flash[:notice] = 'A alternativa não pode ser excluída devido a relação com a espécie ' + @especie.first.nome
+      end
       format.html { redirect_to(alternativas_url) }
-      format.xml  { head :ok }
     end
+
   end
 end

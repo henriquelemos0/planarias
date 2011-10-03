@@ -76,10 +76,21 @@ class EstadosController < ApplicationController
   # DELETE /estados/1.xml
   def destroy
     @estado = Estado.find(params[:id])
-    @estado.destroy
+    @municipio = @estado.municipios
+
+    @destroyed = false
+    if @municipio.first.nil?
+      @estado.destroy
+      @destroyed = true
+    end
 
     respond_to do |format|
-      format.html { redirect_to(estados_url) }
+      if @destroyed
+        flash[:notice] = 'Estado excluído com sucesso.'
+      else
+        flash[:notice] = 'O estadoo não pode ser excluído devido a relação com o município ' + @municipios.first.nome
+      end
+      format.html { redirect_to(municipios_url) }
       format.xml  { head :ok }
     end
   end

@@ -102,9 +102,20 @@ class EspeciesController < ApplicationController
   # DELETE /especies/1.xml
   def destroy
     @especie = Especie.find(params[:id])
-    @especie.destroy
+    @especie_imagens = EspecieImagem.find(@especie.especie_imagens)
+
+    @destroyed = false
+    if @especie_imagens.first.nil?
+      @especie.destroy
+      @destroyed = true
+    end
 
     respond_to do |format|
+      if @destroyed
+        flash[:notice] = 'Espécie excluída com sucesso.'
+      else
+        flash[:notice] = 'O especie não pode ser excluído devido a relação com a imagem ' + @especie_imagens.first.nome
+      end
       format.html { redirect_to(especies_url) }
       format.xml  { head :ok }
     end

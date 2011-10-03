@@ -2,7 +2,11 @@ class MunicipiosController < ApplicationController
   # GET /municipios
   # GET /municipios.xml
   def index
-    @municipios = Municipio.all
+    sql = "select Paises.nome, Estados.nome, Municipios.nome, Municipio.id "
+    sql += "from Paises, Estados, Municipios "
+    sql += "where Municipios.estado_id = Estados.id and Estados.pais_id = Paises.id "
+    sql += "order by Paises.nome, Estados.nome, Municipios.nome"
+    @municipios = Municipio.connection.execute(sql)
     
     respond_to do |format|
       format.html # index.html.erb
@@ -75,9 +79,20 @@ class MunicipiosController < ApplicationController
   # DELETE /municipios/1.xml
   def destroy
     @municipio = Municipio.find(params[:id])
-    @municipio.destroy
+    @especies = @municipios.especies
+
+    @destroyed = false
+    if @especies.first.nil?
+      @municipio.destroy
+      @destroyed = true
+    end
 
     respond_to do |format|
+      if @destroyed
+        flash[:notice] = 'Município excluído com sucesso.'
+      else
+        flash[:notice] = 'O municícipio não pode ser excluído devido a relação com a espécie ' + @especies.first.nome
+      end
       format.html { redirect_to(municipios_url) }
       format.xml  { head :ok }
     end

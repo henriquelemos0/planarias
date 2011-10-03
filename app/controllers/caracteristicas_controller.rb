@@ -74,12 +74,23 @@ class CaracteristicasController < ApplicationController
   # DELETE /caracteristicas/1
   # DELETE /caracteristicas/1.xml
   def destroy
-    @caracteristica = Caracteristica.find(params[:id])
-    @caracteristica.destroy
+    @caracteristicas = Caracteristica.find(params[:id])
+    @alternativa = @caracteristicas.alternativas
+
+    @destroyed = false
+    if @alternativa.first.nil?
+      @caracteristicas.destroy
+      @destroyed = true
+    end
 
     respond_to do |format|
+      if @destroyed
+        flash[:notice] = 'Característica excluída com sucesso.'
+      else
+        flash[:notice] = 'A característica não pode ser excluída devido a relação com a alternativa ' + @alternativa.first.nome
+      end
       format.html { redirect_to(caracteristicas_url) }
-      format.xml  { head :ok }
     end
+
   end
 end

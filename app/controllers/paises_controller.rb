@@ -75,9 +75,20 @@ class PaisesController < ApplicationController
   # DELETE /paises/1.xml
   def destroy
     @pais = Pais.find(params[:id])
-    @pais.destroy
+    @estados = @pais.estados
+
+    @destroyed = false
+    if @estados.first.nil?
+      @pais.destroy
+      @destroyed = true
+    end
 
     respond_to do |format|
+      if @destroyed
+        flash[:notice] = 'País excluído com sucesso.'
+      else
+        flash[:notice] = 'O país não pode ser excluído devido a relação com o estado ' + @estados.first.nome
+      end
       format.html { redirect_to(paises_url) }
       format.xml  { head :ok }
     end
