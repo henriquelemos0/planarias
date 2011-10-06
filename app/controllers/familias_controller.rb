@@ -75,10 +75,10 @@ class FamiliasController < ApplicationController
   # DELETE /familias/1.xml
   def destroy
     @familia = Familia.find(params[:id])
-    @subfamilia = @familia.subfamilias
+    @subfamilias = @familia.subfamilias
 
     @destroyed = false
-    if @subfamilia.first.nil?
+    if @subfamilias.first.nil?
       @familia.destroy
       @destroyed = true
     end

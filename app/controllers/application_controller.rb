@@ -3,10 +3,25 @@
 
 class ApplicationController < ActionController::Base
   layout "admin"
+  before_filter :authorize, :except => :login
+
   
   helper :all # include all helpers, all the time
-  protect_from_forgery # See ActionController::RequestForgeryProtection for details
+  
+  # See ActionController::RequestForgeryProtection for details
+  protect_from_forgery :secret => '12c083470e1237e6ad5faca4325a0f7'
 
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
+
+protected
+  def authorize
+    unless Usuario.find_by_id(session[:usuario_id])
+      session[:original_uri] = request.request_uri
+      flash[:notice] = "Por favor, faça login"
+      redirect_to :controller => 'admin' , :action => 'login'
+  end
+
+end
+
 end

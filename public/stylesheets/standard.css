@@ -1,4 +1,4 @@
-/* Global styles */
+ /* Global styles */
 
 /* START:notice */
 #notice {
@@ -10,12 +10,13 @@
 }
 /* END:notice */
 
+/* START:mainlayout */
 
 body {
 	text-align:center;
 }
 
-#admin {
+#body {
 	width:1024px;
 	margin:0px auto;
 	text-align:left;
@@ -25,7 +26,6 @@ body {
 h1 {
   font:  150% sans-serif;
   color: #022a00;
-  text-align: center;
 }
 
 h2 {
@@ -47,14 +47,13 @@ a:active {
 	text-decoration: none
 }
 
-/* START:mainlayout */
 /* Styles for main page */
 
 #banner {
   /* background: #9c9; */
   padding-top: 10px;
-  padding-bottom: 10px;
-  border-bottom: 2px solid;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #118811;
   font: small-caps 40px/40px "Times New Roman", serif;
   color: #282;
   text-align: center;
@@ -66,6 +65,12 @@ a:active {
 
 #columns {
   background: #fff;
+}
+
+#full {
+  padding-top: 0.3ex;
+  padding-left: 1em;
+  background: white;
 }
 
 #main {
@@ -81,7 +86,6 @@ a:active {
   padding-left: 1em;
   padding-bottom: 1em;
   width: 12em;
-  /*background: #dfffd8;*/
 }
 
 #side a {
@@ -90,7 +94,7 @@ a:active {
   text-decoration: none;
 }
 
-/* Links */
+/* Left-Menu */
 
 #links {
 	float: left;
@@ -120,6 +124,36 @@ a:active {
 #links li i {
 	font-size: smaller;
 }
+
+/* Main Menu */
+
+.underlinemenu{
+  font-weight: bold;
+  width: 100%;
+  border-bottom: 2px solid lightgray;
+}
+
+.underlinemenu ul{
+  padding: 6px 0 4px 0; /*6px should equal top padding of "ul li a" below, 7px should equal bottom padding + bottom border of "ul li a" below*/
+  margin: 0;
+  text-align: center; /*set value to "left", "center", or "right"*/
+}
+
+.underlinemenu ul li{
+  display: inline;
+}
+
+.underlinemenu ul li a{
+  color: #494949;
+  padding: 6px 23px 4px 23px; /*top padding is 6px, bottom padding is 4px*/
+  margin-right: 20px; /*spacing between each menu link*/
+  text-decoration: none;
+}
+
+.underlinemenu ul li a:hover, .underlinemenu ul li a.selected{
+  border-bottom: 3px solid darkgreen; /*bottom border is 3px*/
+}
+
 /* END:mainlayout */
 
 
@@ -254,4 +288,11 @@ table a:visited:hover {
   padding: 2px;
   padding-right: 12px;
   background: transparent url(../images/visitedLink.gif) no-repeat 100% 50%;
+}
+
+/* others */
+
+.login {
+  padding-left: 8em;
+  padding-top: 3em;
 }

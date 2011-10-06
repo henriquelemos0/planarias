@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+  <title>Planárias Terrestres</title>
+  <%= stylesheet_link_tag "standard", :media => "all" %>
+  <%= javascript_include_tag :defaults %>
+</head>
+<body id="body">
+  <div id="banner">
+
+    <%= @page_title || "Planárias Terrestres Neotropicais" %>
+  </div>
+  <div class="underlinemenu">
+    <ul>
+      <li><%= link_to 'Home', '/' %></li>
+      <li><%= link_to 'Buscar', :controller => 'buscar' %></li>
+      <li><%= link_to 'Publicações', '/' %></li>
+      <li><%= link_to 'Espécies', '/' %></li>
+      <li><%= link_to 'Equipe', '/' %></li>
+      <li><%= link_to 'Admin', :controller => 'admin' %></li>
+    </ul>
+  </div>
+  <div id="full">
+    <% if flash[:notice] -%>
+      <div id="notice"><%= flash[:notice] %></div>
+    <% end -%>
+    <%= yield :layout %>
+  </div>
+</body>
+</html>

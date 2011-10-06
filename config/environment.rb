@@ -37,6 +37,13 @@ Rails::Initializer.run do |config|
 
   # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
-   config.i18n.default_locale = :pt_br
+  config.i18n.default_locale = :pt_br
+
+	config.action_controller.session = {
+    :session_key => '_depot_session',
+    :secret      => '0981ccc344bdb829688de098bb...de1983de238a61dfddc8739dd12345'
+  }
+
+	config.action_controller.session_store = :active_record_store
 
 end

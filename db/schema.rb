@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111003084156) do
+ActiveRecord::Schema.define(:version => 20111004170214) do
 
   create_table "alternativas", :force => true do |t|
     t.string   "nome",              :null => false
@@ -110,9 +110,27 @@ ActiveRecord::Schema.define(:version => 20111003084156) do
     t.datetime "updated_at"
   end
 
+  create_table "sessions", :force => true do |t|
+    t.string   "session_id", :null => false
+    t.text     "data"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
+  add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
+
   create_table "subfamilias", :force => true do |t|
     t.string   "nome",       :null => false
     t.integer  "familia_id", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "usuarios", :force => true do |t|
+    t.string   "nome"
+    t.string   "hashed_password"
+    t.string   "salt"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

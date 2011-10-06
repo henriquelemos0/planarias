@@ -12,15 +12,14 @@ class EspecieGeneroController < ApplicationController
 
   def update
 
-    @especie = Especie.find(params[:especie_id])
-    @genero = Genero.find(params[:genero_id][:id])
+    especie = Especie.find(params[:especie_id])
+    genero = Genero.find(params[:genero_id][:id])
 
-    if !@especie.generos.empty?
-      @especie.generos.each(&:destroy)
+    especie.generos.each do |g|
+      especie.generos.delete(g)
     end
 
-    @especie.generos.push(@genero)
-    @especie.save!
+    especie.generos.push(genero)
 
     respond_to do |format|
         flash[:notice] = "Gênero associado à espécie"
