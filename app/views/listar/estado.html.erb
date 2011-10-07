@@ -1,0 +1,23 @@
+<h1>Buscar por Localização</h1>
+
+<div id="content">
+  <%if @municipios.size.zero?%>
+    <br/>
+    <p>Nenhum município cadastrado nesse estado.</p>
+  <%else%>
+    <p><%= link_to @estado.pais.nome, :action => 'pais', :id => @estado.pais.id %> >> <%= @estado.nome %></p>
+    <table>
+      <tr>
+        <th>Municípios</th>
+      </tr>
+  <% @municipios.each do |municipio| %>
+      <tr>
+        <td><%= link_to municipio.nome, :action => 'municipio', :id => municipio.id %></td>
+      </tr>
+    <%end%>
+    </table>
+  <%end%>
+
+  <p><%= link_to 'Voltar', '/listar/pais/' + @estado.pais.id.to_s %></p>
+    
+</div>

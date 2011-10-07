@@ -1,0 +1,22 @@
+<h1>Buscar por Taxonomia</h1>
+
+<div id="content">
+  <%if @familias.size.zero?%>
+    <br/>
+    <p>Nenhuma família cadastrada.</p>
+  <%else%>
+    <table>
+      <tr>
+        <th>Famílias</th>
+      </tr>
+  <% @familias.each do |familia| %>
+      <tr>
+        <td><%= link_to familia.nome, :action => 'familia', :id => familia.id %></td>
+      </tr>
+    <%end%>
+    </table>
+  <%end%>
+
+  <p><%= link_to 'Voltar', '/buscar' %></p>
+    
+</div>

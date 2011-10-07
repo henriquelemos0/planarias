@@ -125,6 +125,16 @@ a:active {
 	font-size: smaller;
 }
 
+#title {
+  text-align: center;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+#content {
+  padding: 0em 2em;
+}
+
 /* Main Menu */
 
 .underlinemenu{

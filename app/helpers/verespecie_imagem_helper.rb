@@ -1,0 +1,2 @@
+module VerespecieImagemHelper
+end

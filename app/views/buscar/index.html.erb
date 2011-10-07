@@ -1,2 +1,14 @@
-<h1>Buscar#index</h1>
-<p>Find me in app/views/buscar/index.html.erb</p>
+<h1>Busca</h1>
+
+<div id="content">
+  <p>Listar por:</p>
+  <ul>
+    <li><%= link_to 'Espécies (Nome)', :controller => 'listar', :action => 'especie' %></li>
+    <li><%= link_to 'Localização (País / Estado / Município)', :controller => 'listar', :action => 'localizacao' %></li>
+    <li><%= link_to 'Taxonomia (Família / Subfamília / Gênero)', :controller => 'listar', :action => 'taxonomia' %></li>
+  </ul>
+  <p>Filtrar por:</p>
+  <ul>
+    <li><%= link_to 'Característica', :controller => 'filtrar', :action => 'caracteristica' %> </li>
+  </ul>
+</div>

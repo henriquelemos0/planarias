@@ -1,0 +1,22 @@
+<h1>Buscar por Localização</h1>
+
+<div id="content">
+  <%if @paises.size.zero?%>
+    <br/>
+    <p>Nenhum país cadastrado.</p>
+  <%else%>
+    <table>
+      <tr>
+        <th>Países</th>
+      </tr>
+  <% @paises.each do |pais| %>
+      <tr>
+        <td><%= link_to pais.nome, :action => 'pais', :id => pais.id %></td>
+      </tr>
+    <%end%>
+    </table>
+  <%end%>
+
+  <p><%= link_to 'Voltar', '/buscar' %></p>
+    
+</div>

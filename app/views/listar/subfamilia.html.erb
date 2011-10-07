@@ -1,0 +1,23 @@
+<h1>Buscar por Taxonomia</h1>
+
+<div id="content">
+  <%if @generos.size.zero?%>
+    <br/>
+    <p>Nenhum género cadastrado nessa subfamília.</p>
+  <%else%>
+    <p><%= link_to @subfamilia.familia.nome, :action => 'familia', :id => @subfamilia.familia.id %> >> <%= @subfamilia.nome %></p>
+    <table>
+      <tr>
+        <th>Géneros</th>
+      </tr>
+  <% @generos.each do |genero| %>
+      <tr>
+        <td><%= link_to genero.nome, :action => 'genero', :id => genero.id %></td>
+      </tr>
+    <%end%>
+    </table>
+  <%end%>
+
+  <p><%= link_to 'Voltar', '/listar/familia/' + @subfamilia.familia.id.to_s %></p>
+    
+</div>

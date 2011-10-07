@@ -1,0 +1,60 @@
+<div id="title">
+  <h1>Espécie <%= @especie.nome %></h1>
+</div>
+
+<div id="content">
+<p>
+  <b>Nome:</b>
+  <%=h @especie.nome %>
+</p>
+<p>
+  <b>Bibliografia:</b><br/>
+  <%=h @especie.bibliografia %>
+</p>
+<p>
+  <b>Gênero:</b>
+  <%= @especie.generos.first.nil? ? "Não definido" : @especie.generos.first.nome %>
+</p>
+<p>
+  <b>Municípios onde a espécie é encontrada: </b>
+  <% if @municipios.size.zero? %>
+    <p> Nenhum.</p>
+  <%else%>
+    <%for municipios in @municipios%>
+        <li>
+          <%= municipios.nome %>
+        </li>
+    <%end%>
+  <%end%>
+</p>
+<p>
+  <b>Imagens: </b>
+  <% if @especie_imagens.size.zero? %>
+    <p> Nenhuma imagem cadastrada.</p>
+  <% else %>
+    <%for especie_imagem in @especie_imagens%>
+        <li>
+          <%= especie_imagem.legenda %><br/>
+          <img src="<%= url_for(:controller => 'verespecie_imagem', :action => 'imagem', :id => especie_imagem.id) %>" alt="<%=especie_imagem.nome%>"/>
+        </li>
+    <% end %>
+  <% end %>
+</p>
+<p>
+  <b>Artigos onde a espécie é citada: </b>
+  <% if @artigos.size.zero? %>
+    <p> Nenhum.</p>
+  <%else%>
+    <%for artigos in @artigos%>
+      <li>
+         <%= link_to artigos.nome, artigos.link, :target => "_blank" %>
+      </li>
+    <%end%>
+  <%end%>
+</p>
+
+<br/>
+
+<%= link_to 'Voltar', :back %>
+
+</div>

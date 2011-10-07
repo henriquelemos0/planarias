@@ -1,4 +1,5 @@
 class BuscarController < ApplicationController
+
   layout "index"
 
   def index

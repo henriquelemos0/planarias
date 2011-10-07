@@ -7,15 +7,15 @@
   <% @caracteristicas.each do |caracteristica| %>
   <p>
     <% form_tag(:action => 'update_all', :method => :put, :especie_id => @especie.id, :caracteristica_id => caracteristica.id) do -%>
-      <b><%=h caracteristica.nome %>: </b><br/>
+      <b><%=h caracteristica.nome %>: </b>
       <% caracteristica.alternativas.each do |alternativa| %>
-      <%   if @especie.alternativas.exists?(alternativa.id) %>
-      <%=     alternativa.nome %>
-      <%   end %>
+      <%   @alternativa_nome = alternativa.nome if @especie.alternativas.exists?(alternativa.id) %>
       <% end %>
+      <%=  @alternativa_nome.nil? ? "Sem dados" : @alternativa_nome %>
+      <%   @alternativa_nome = nil %>
       <br/>
-      <%= collection_select(@alternativa_id, :alternativa_id, caracteristica.alternativas.all , :id, :nome,  :prompt => "Selecione para alterar" ) %>
-    <%= submit_tag "Atualizar" %>
+      <%= collection_select(@alternativa_id, :alternativa_id, caracteristica.alternativas.all , :id, :nome, :prompt => "Sem dados" ) %>
+    <%= submit_tag "Alterar" %>
     <%end -%>
   </p>
   <% end %>

@@ -1,0 +1,23 @@
+<h1>Filtrar por Característica</h1>
+
+<div id="content">
+  <%if @caracteristicas.size.zero?%>
+    <br/>
+    <p>Nenhuma característica cadastrada.</p>
+  <%else%>
+    <br/>
+    <%= form_tag %>
+    <% @caracteristicas.each do |caracteristica| -%>
+
+      <b><%=h caracteristica.nome -%>: </b><br/>
+      <%= collection_select(:caracteristica, caracteristica.id, caracteristica.alternativas.all , :id, :nome,  :prompt => "Escolher" ) %>
+      <br/>
+      <br/>
+
+    <%  end -%>
+    <%= submit_tag 'Filtrar' %>
+  <% end -%>
+
+  <p><%= link_to 'Voltar', '/buscar' -%></p>
+
+</div>
