@@ -15,8 +15,8 @@
     <ul>
       <li><%= link_to 'Home', '/' %></li>
       <li><%= link_to 'Buscar', :controller => 'buscar' %></li>
-      <li><%= link_to 'Publicações', '/' %></li>
-      <li><%= link_to 'Espécies', '/' %></li>
+      <li><%= link_to 'Publicações', :controller => 'home', :action => 'artigos' %></li>
+      <li><%= link_to 'Espécies', :controller => 'listar', :action => 'especie' %></li>
       <li><%= link_to 'Equipe', '/' %></li>
       <li><%= link_to 'Admin', :controller => 'admin' %></li>
     </ul>

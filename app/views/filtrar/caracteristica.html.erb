@@ -10,7 +10,7 @@
     <% @caracteristicas.each do |caracteristica| -%>
 
       <b><%=h caracteristica.nome -%>: </b><br/>
-      <%= collection_select(:caracteristica, caracteristica.id, caracteristica.alternativas.all , :id, :nome,  :prompt => "Escolher" ) %>
+      <%= collection_select(:caracteristica, :id, caracteristica.alternativas.all , :id, :nome,  :prompt => "Escolher" ) %>
       <br/>
       <br/>
 

@@ -2,13 +2,9 @@ class ListarController < ApplicationController
 
   layout "index"
 
-  def especie
-    @especies = Especie.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @especies }
-    end
+  def especie    
+    params['nome'].nil? ? @nome = '' : @nome = params['nome'].gsub('%', '\%').gsub('_', '\_')
+    @especies = Especie.find(:all, :conditions => ['nome like ?', '%' + @nome + '%'])
   end
 
   def localizacao

@@ -10,11 +10,12 @@ class FiltrarController < ApplicationController
       sql += "FROM especie, alternativas_especies "
       sql += "WHERE especies.id = alternativa_especie.id and ("
 
-      params["caracterisitca"].each do |key,value|
-        puts "Hash inner key=>#{key}"
-        puts "Hash inner value=>#{value}"
-        #sql += " alternativas_especies = " + value
-      end
+      puts params["caracterisitca"].each { |value|
+         puts value.to_s
+
+      }
+      puts "Hash inner value=>#{params['caracterisitca']['3']}"
+      #sql += " alternativas_especies = " + value
 
       sql += " alternativas_especies = 0 )"
 

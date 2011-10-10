@@ -1,0 +1,22 @@
+<div id="title">
+  <h1>Listando artigos</h1>
+</div>
+<div id="content">
+<% if @artigos.size.zero? %>
+  <br />
+  <p> Nenhuma artigo cadastrado.</p>
+<% else %>
+<table>
+  <tr>
+    <th>Nome</th>
+  </tr>
+
+<% @artigos.each do |artigo| %>
+  <tr>
+    <td><%= link_to artigo.nome, artigo.link, :target => '_blank' %></td>
+  </tr>
+<% end %>
+</table>
+<%end%>
+<br />
+</div>

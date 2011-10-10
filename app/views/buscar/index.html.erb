@@ -1,6 +1,13 @@
 <h1>Busca</h1>
 
 <div id="content">
+  <p>Procurar por:</p>
+  <ul>
+    <%= form_tag :controller => 'listar', :action => 'especie' %>
+      <%= label_tag 'Nome da espécie:' %>
+      <%= text_field_tag :nome %>
+    <%= submit_tag 'Procurar' %>
+  </ul>
   <p>Listar por:</p>
   <ul>
     <li><%= link_to 'Espécies (Nome)', :controller => 'listar', :action => 'especie' %></li>
