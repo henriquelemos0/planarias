@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class EspecieImagensController < ApplicationController
 
   def imagem

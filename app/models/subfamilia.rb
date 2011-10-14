@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Subfamilia < ActiveRecord::Base
 
   belongs_to :familia

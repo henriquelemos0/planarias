@@ -1,0 +1,34 @@
+<h1>Filtrar por Característica</h1>
+
+<div id="content">
+
+  <%if @caracteristicas.size.zero?%>
+    <br/>
+    <p>Nenhuma característica cadastrada.</p>
+
+  <%else%>
+    <br/>
+
+  <% @especies.each do |especie| %>
+    <%= link_to especie['nome'], :controller => 'verespecie', :id => especie['id']%>
+  <% end unless @especies.nil?%>
+  
+  <%= form_tag %>
+
+    <% @caracteristicas.each do |caracteristica| %>
+
+      <% fields_for "caracteristica[]", caracteristica do |f| %>
+        <b><%=h caracteristica.nome %></b><br />
+        <%= f.collection_select :id, caracteristica.alternativas, :id, :nome, :include_blank => 'Sem dados' %><br />
+        <br />
+      <% end %>
+
+    <% end %>
+
+    <%= submit_tag 'Filtrar' %>
+  
+  <% end -%>
+
+  <p><%= link_to 'Voltar', '/buscar' -%></p>
+
+</div>

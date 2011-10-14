@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateTableEspeciesMunicipios < ActiveRecord::Migration
   def self.up
     create_table :especies_municipios, :id => false do |t|

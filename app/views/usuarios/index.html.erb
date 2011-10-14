@@ -1,0 +1,25 @@
+<h1>Listando usuarios</h1>
+
+<% if @usuarios.size.zero? %>
+  <br />
+  <p> Nenhum usuário cadastrado.</p>
+<% else %>
+<table>
+  <tr>
+    <th>Nome</th>
+  </tr>
+
+<% @usuarios.each do |usuario| %>
+  <tr>
+    <td><%=h usuario.nome %></td>
+    <td><%= link_to 'Ver', usuario %></td>
+    <td><%= link_to 'Editar', edit_usuario_path(usuario) %></td>
+    <td><%= link_to 'Excluir', usuario, :confirm => 'Você tem certeza?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<% end %>
+<br />
+
+<%= link_to 'Criar usuário', new_usuario_path %>

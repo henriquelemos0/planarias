@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Alternativa < ActiveRecord::Base
 
   belongs_to :caracteristica

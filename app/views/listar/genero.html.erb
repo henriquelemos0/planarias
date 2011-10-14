@@ -1,0 +1,23 @@
+<h1>Buscar por Taxonomia</h1>
+
+<div id="content">
+  <p><%= link_to @genero.subfamilia.familia.nome, :action => 'familia', :id => @genero.subfamilia.familia.id %> >> <%= link_to @genero.subfamilia.nome, :action => 'subfamilia', :id => @genero.subfamilia.id %> >> <%= @genero.nome %></p>
+  <%if @especies.size.zero?%>
+    <br/>
+    <p>Nenhuma espécie encontrada.</p>
+  <%else%>
+    <table>
+      <tr>
+        <th>Espécies</th>
+      </tr>
+  <% @especies.each do |especie| %>
+      <tr>
+        <td><%= link_to especie.nome, :controller => 'verespecie', :action => 'show', :id => especie.id %></td>
+      </tr>
+    <%end%>
+    </table>
+  <%end%>
+
+  <p><%= link_to 'Voltar', '/listar/subfamilia/' + @genero.subfamilia.id.to_s %></p>
+    
+</div>

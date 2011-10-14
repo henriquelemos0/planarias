@@ -1,8 +1,9 @@
+# -*- encoding : utf-8 -*-
 class MunicipiosController < ApplicationController
   # GET /municipios
   # GET /municipios.xml
   def index
-    sql = "select Paises.nome, Estados.nome, Municipios.nome, Municipio.id "
+    sql = "select Paises.nome, Estados.nome, Municipios.nome, Municipios.id "
     sql += "from Paises, Estados, Municipios "
     sql += "where Municipios.estado_id = Estados.id and Estados.pais_id = Paises.id "
     sql += "order by Paises.nome, Estados.nome, Municipios.nome"
@@ -79,7 +80,7 @@ class MunicipiosController < ApplicationController
   # DELETE /municipios/1.xml
   def destroy
     @municipio = Municipio.find(params[:id])
-    @especies = @municipios.especies
+    @especies = @municipio.especies
 
     @destroyed = false
     if @especies.first.nil?

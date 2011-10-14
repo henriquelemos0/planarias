@@ -1,0 +1,23 @@
+<h1>Buscar por Localização</h1>
+
+<div id="content">
+  <p><%= link_to @municipio.estado.pais.nome, :action => 'pais', :id => @municipio.estado.pais.id %> >> <%= link_to @municipio.estado.nome, :action => 'estado', :id => @municipio.estado.id %> >> <%= @municipio.nome %></p>
+  <%if @especies.size.zero?%>
+    <br/>
+    <p>Nenhuma espécie encontrada.</p>
+  <%else%>
+    <table>
+      <tr>
+        <th>Espécies</th>
+      </tr>
+  <% @especies.each do |especie| %>
+      <tr>
+        <td><%= link_to especie.nome, :controller => 'verespecie', :action => 'show', :id => especie.id %></td>
+      </tr>
+    <%end%>
+    </table>
+  <%end%>
+
+  <p><%= link_to 'Voltar', '/listar/estado/' + @municipio.estado.id.to_s %></p>
+    
+</div>

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateSubfamilias < ActiveRecord::Migration
   def self.up
     create_table :subfamilias do |t|

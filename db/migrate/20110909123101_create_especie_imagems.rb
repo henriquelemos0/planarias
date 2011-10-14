@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateEspecieImagems < ActiveRecord::Migration
   def self.up
     create_table :especie_imagems do |t|

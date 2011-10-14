@@ -4,13 +4,16 @@
 <head>
   <title>Planárias Terrestres</title>
   <%= stylesheet_link_tag "standard", :media => "all" %>
+  <%= javascript_include_tag :defaults %>
 </head>
-<body id="admin">
+<body>
+<div id="page">
   <div id="banner">
 
     <%= @page_title || "Planárias Terrestres Neotropicais" %>
   </div>
   <div id="columns">
+    <% if session[:usuario_id] %>
     <div id="links">
       <ul>
         <li>
@@ -30,11 +33,17 @@
             <li><%= link_to 'Famílias',    :controller => 'familias'    %></li>
             <li><%= link_to 'Subfamílias',    :controller => 'subfamilias'    %></li>
             <li><%= link_to 'Gêneros',    :controller => 'generos'    %></li>
+            <br/>
+            <br/>
+            <li> </li>
+            <li><%= link_to 'Usuários',    :controller => 'usuarios'    %></li>
           </ul>
         </li>
         <br/>
       </ul>
+      <%= link_to 'Sair',    :controller => 'admin', :action => 'logout'    %>
     </div>
+    <% end %>
     <div id="main">
       <% if flash[:notice] -%>
         <div id="notice"><%= flash[:notice] %></div>
@@ -42,5 +51,6 @@
       <%= yield :layout %>
     </div>
   </div>
+</div>
 </body>
 </html>

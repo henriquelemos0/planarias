@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class EspeciesController < ApplicationController
   # GET /especies
   # GET /especies.xml
@@ -114,7 +115,7 @@ class EspeciesController < ApplicationController
       if @destroyed
         flash[:notice] = 'Espécie excluída com sucesso.'
       else
-        flash[:notice] = 'O especie não pode ser excluído devido a relação com a imagem ' + @especie_imagens.first.nome
+        flash[:notice] = 'A espécie não pode ser excluída devido a relação com a imagem ' + @especie_imagens.first.nome
       end
       format.html { redirect_to(especies_url) }
       format.xml  { head :ok }

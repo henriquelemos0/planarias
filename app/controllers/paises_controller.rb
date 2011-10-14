@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class PaisesController < ApplicationController
   # GET /paises
   # GET /paises.xml

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class ArtigosController < ApplicationController
   # GET /artigos
   # GET /artigos.xml
@@ -89,7 +90,7 @@ class ArtigosController < ApplicationController
       else
         flash[:notice] = 'O artigo não pode ser excluído devido a relação com a espécie ' + @especie.first.nome
       end
-      format.html { redirect_to(artigos_url) }
+      format.html { redirect_to artigos_url }
       format.xml  { head :ok }
     end
   end

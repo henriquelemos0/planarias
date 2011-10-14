@@ -2,7 +2,7 @@
 
 <%= error_messages_for("especie_imagem" ) %>
 
-<% form_for(:especie_imagem,
+<%= form_for(:especie_imagem,
           :url => {:action => 'create'},
           :html => { :multipart => true }) do |f| %>
 

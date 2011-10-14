@@ -1,0 +1,25 @@
+<h1>Buscar por Taxonomia</h1>
+
+<div id="content">
+  <%if @subfamilias.size.zero?%>
+    <br/>
+    <p>Nenhuma subfamília cadastrada nessa família.</p>
+  <%else%>
+    <p><%= @familia.nome %><p/>
+    <table>
+      <tr>
+        <th>Subfamílias</th>
+      </tr>
+  <% @subfamilias.each do |subfamilia| %>
+      <tr>
+        <td><%= link_to subfamilia.nome, :action => 'subfamilia', :id => subfamilia.id %></td>
+      </tr>
+    <%end%>
+    </table>
+  <%end%>
+
+
+  <p><%= link_to 'Voltar', '/listar/taxonomia' %></p>
+    
+</div>
+

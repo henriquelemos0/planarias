@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class EspecieImagem < ActiveRecord::Base
 
   belongs_to :especie

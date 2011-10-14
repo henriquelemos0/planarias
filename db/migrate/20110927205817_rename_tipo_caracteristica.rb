@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class RenameTipoCaracteristica < ActiveRecord::Migration
   def self.up
     rename_table :tipo_caracteristicas, :alternativas

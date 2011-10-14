@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AlternativasEspeciesController < ApplicationController
 
   def edit
@@ -14,14 +15,14 @@ class AlternativasEspeciesController < ApplicationController
   def update_all
     especie = Especie.find(params[:especie_id])
     caracteristica = Caracteristica.find(params[:caracteristica_id])
-    alternativa_nova = Alternativa.find(params[:alternativa_id])
+    alternativa_nova = Alternativa.find(params[:alternativa_id]) unless params[:alternativa_id].empty?
     @alternativas = caracteristica.alternativas
 
     @alternativas.each do |alternativa|
       especie.alternativas.delete(alternativa)
     end
     
-    especie.alternativas.push(alternativa_nova)
+    especie.alternativas.push(alternativa_nova) unless params[:alternativa_id].empty?
     
     respond_to do |format|
       flash[:notice] = "Espécie alterada com sucesso."

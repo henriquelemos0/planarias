@@ -1,0 +1,21 @@
+<h1>Busca</h1>
+
+<div id="content">
+  <p>Procurar por:</p>
+  <ul>
+    <%= form_tag :controller => 'listar', :action => 'especie' %>
+      <%= label_tag 'Nome da espécie:' %>
+      <%= text_field_tag :nome %>
+    <%= submit_tag 'Procurar' %>
+  </ul>
+  <p>Listar por:</p>
+  <ul>
+    <li><%= link_to 'Espécies (Nome)', :controller => 'listar', :action => 'especie' %></li>
+    <li><%= link_to 'Localização (País / Estado / Município)', :controller => 'listar', :action => 'localizacao' %></li>
+    <li><%= link_to 'Taxonomia (Família / Subfamília / Gênero)', :controller => 'listar', :action => 'taxonomia' %></li>
+  </ul>
+  <p>Filtrar por:</p>
+  <ul>
+    <li><%= link_to 'Característica', :controller => 'filtrar', :action => 'caracteristica' %> </li>
+  </ul>
+</div>

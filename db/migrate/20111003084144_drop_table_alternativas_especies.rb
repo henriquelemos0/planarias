@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class DropTableAlternativasEspecies < ActiveRecord::Migration
   def self.up
   end

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateTableEspecieTipoCaracteristicas < ActiveRecord::Migration
   def self.up
     create_table :especie_tipo_caracteristica do |t|

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class RenameEspecieImagem < ActiveRecord::Migration
   def self.up
     rename_table :especie_imagems, :especie_imagens

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateFamilias < ActiveRecord::Migration
   def self.up
     create_table :familias do |t|

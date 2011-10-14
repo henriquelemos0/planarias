@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class GenerosController < ApplicationController
   # GET /generos
   # GET /generos.xml

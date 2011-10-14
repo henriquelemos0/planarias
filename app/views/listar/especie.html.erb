@@ -1,0 +1,27 @@
+<div id="title">
+  <h1>Listando espécies</h1>
+</div>
+<div id="content">
+  <p>
+    Procurando por: <%= @nome.empty? ? "Todas" : "\'#{@nome}\'" %>
+  </p>
+<% if @especies.size.zero? %>
+  <br />
+  <p> Nenhuma espécie encontrada.</p>
+<% else %>
+<table>
+  <tr>
+    <th>Nome</th>
+  </tr>
+
+<% @especies.each do |especie| %>
+  <tr>
+    <td><%=h especie.nome %></td>
+    <td><%= link_to 'Ver', :controller => 'verespecie', :action => 'show', :id => especie.id %></td>
+  </tr>
+<% end %>
+</table>
+<%end%>
+<br />
+  <p><%= link_to 'Voltar', '/buscar' %></p>
+</div>

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateGeneros < ActiveRecord::Migration
   def self.up
     create_table :generos do |t|

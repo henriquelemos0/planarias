@@ -1,0 +1,319 @@
+ /* Global styles */
+
+/* START:notice */
+#notice {
+  /*border: 2px solid red;*/
+  padding: 1em;
+  margin-bottom: 2em;
+  margin-top: 2em;
+  background-color: #fff0f0;
+}
+/* END:notice */
+
+/* START:mainlayout */
+
+html, body {
+	height: 100%;
+  text-align:center;
+}
+
+h1 {
+  font:  150% sans-serif;
+  color: #022a00;
+}
+
+h2 {
+	padding-left: 20px;
+	background: url(../images/img07.gif) no-repeat left center;
+	font-size: 22px;
+}
+
+a:link, a:visited {
+	color: #026a00;
+  text-decoration: none;
+}
+
+a:hover {
+	color: #029a00;
+}
+
+a:active {
+	text-decoration: none
+}
+
+/* Styles for main page */
+
+#page {
+	width:1024px;
+	margin:0px auto;
+  text-align:left;
+  min-height: 100%;
+  position: relative;
+}
+
+#banner {
+  /* background: #9c9; */
+  padding-top: 10px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #118811;
+  font: small-caps 40px/40px "Times New Roman", serif;
+  color: #282;
+  text-align: center;
+}
+
+#banner img {
+  float: left;
+}
+
+#columns {
+  background: #fff;
+}
+
+#full {
+  padding: 0.3em 0 3em 1em;
+  background: white;
+}
+
+#main {
+  margin-left: 13em;
+  padding-left: 2em;
+  background: white;
+}
+
+#side {
+  float: left;
+  padding-top: 1em;
+  padding-left: 1em;
+  padding-bottom: 1em;
+  width: 12em;
+}
+
+#side a {
+  color: #000;
+  font-size: small;
+  text-decoration: none;
+}
+
+#footer {
+    width: 100%;
+    bottom: 0;
+    border-top: 1px solid #029a00;
+    position: absolute;
+}
+
+#footer p {
+    text-align: center;
+}
+
+/* Left-Menu */
+
+#links {
+	float: left;
+	width: 220px;
+}
+
+#links ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#links li ul {
+	padding: 15px 20px 30px 20px;
+	background: url(../images/img10.gif) repeat-x
+}
+
+#links li li {
+	padding: 3px 0;
+	background: url(../images/img03.gif) repeat-x left bottom;
+}
+
+#links li a {
+	background: none;
+}
+
+#links li i {
+	font-size: smaller;
+}
+
+#title {
+  text-align: center;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+#content {
+  padding: 0em 2em;
+}
+
+/* Main Menu */
+
+.underlinemenu{
+  font-weight: bold;
+  width: 100%;
+  border-bottom: 2px solid lightgray;
+}
+
+.underlinemenu ul{
+  padding: 6px 0 4px 0; /*6px should equal top padding of "ul li a" below, 7px should equal bottom padding + bottom border of "ul li a" below*/
+  margin: 0;
+  text-align: center; /*set value to "left", "center", or "right"*/
+}
+
+.underlinemenu ul li{
+  display: inline;
+}
+
+.underlinemenu ul li a{
+  color: #494949;
+  padding: 6px 23px 4px 23px; /*top padding is 6px, bottom padding is 4px*/
+  margin-right: 20px; /*spacing between each menu link*/
+  text-decoration: none;
+}
+
+.underlinemenu ul li a:hover, .underlinemenu ul li a.selected{
+  border-bottom: 3px solid darkgreen; /*bottom border is 3px*/
+}
+
+/* END:mainlayout */
+
+
+/* The error box */
+
+.fieldWithErrors {
+  padding: 2px;
+  background-color: #EEFFEE;
+  display: inline;
+}
+
+.fieldWithErrors * {
+  color: red;
+}
+
+#errorExplanation {
+  width: 400px;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #fff;
+}
+
+#errorExplanation h2 {
+  background: url(../images/nothing.gif) no-repeat left center;
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 10px;
+  font-size: 16px;
+  margin: -7px  ;
+  background-color: #fff;
+  color: #900;
+}
+
+#errorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 5px;
+}
+
+#errorExplanation ul li {
+  font-size: 14px;
+  list-style: square;
+}
+
+/* START:i18n */
+.locale {
+  float:right;
+  padding-top: 0.2em
+}
+/* END:i18n */
+
+
+/* "Winter Blues" CSS theme for CSS Table Gallery (http://icant.co.uk/csstablegallery/) by Gunta Klavina (http://www.klavina.com) */
+
+table {
+  margin: 0;
+  padding: 0;
+  border-collapse: collapse;
+  text-align: left;
+  color: #333;
+  background-color: #FBFDF6;
+}
+
+td {
+  margin: 0;
+  padding: 5px 10px;
+  border: 1px dotted #f5f5f5;
+}
+
+tbody tr th {
+  padding: 10px 10px;
+  border-bottom: 1px dotted #f5f5f5;
+}
+
+tr {
+  background-color: #FBFDF6;
+  border-left: 1px solid #ccc;
+  
+}
+tr.odd {
+  background-color: #ff0000;
+}
+
+tr:hover {
+}
+
+tr:hover td, tr:hover td a, tr:hover th a {
+  color: #000;
+}
+
+td:hover {
+}
+
+tr:hover th a:hover {
+  background-color: #F7FBEF;
+  border-bottom: 2px solid #86C200;
+}
+
+table a {
+  color: #fff;
+  background-image: none;
+  text-decoration: none;
+  border-bottom: 1px dotted #8A8F95;
+  padding: 2px;
+  padding-right: 12px;
+  background: transparent url(../images/link.gif) no-repeat 100% 50%;
+}
+
+table a:hover {
+  color: #fff;
+  background-image: none;
+  text-decoration: none;
+  border-bottom: 3px solid #333;
+  padding: 2px;
+  padding-right: 12px;
+  background: transparent url(../images/visitedLink.gif) no-repeat 100% 50%;
+}
+
+table a:visited {
+  text-decoration: none;
+  border-bottom: 1px dotted #333;
+  text-decoration: none;
+  padding-right: 12px;
+  background: transparent url(../images/visitedLink.gif) no-repeat 100% 50%;
+}
+
+table a:visited:hover {
+  background-image: none;
+  text-decoration: none;
+  border-bottom: 3px solid #333;
+  padding: 2px;
+  padding-right: 12px;
+  background: transparent url(../images/visitedLink.gif) no-repeat 100% 50%;
+}
+
+/* others */
+
+.login {
+  padding-left: 8em;
+  padding-top: 3em;
+}

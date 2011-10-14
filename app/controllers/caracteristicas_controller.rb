@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CaracteristicasController < ApplicationController
   # GET /caracteristicas
   # GET /caracteristicas.xml

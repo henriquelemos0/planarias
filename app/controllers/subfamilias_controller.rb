@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class SubfamiliasController < ApplicationController
   # GET /subfamilias
   # GET /subfamilias.xml
@@ -75,7 +76,7 @@ class SubfamiliasController < ApplicationController
   # DELETE /subfamilias/1
   # DELETE /subfamilias/1.xml
   def destroy
-    @subfamlia = Subfamilia.find(params[:id])
+    @subfamilia = Subfamilia.find(params[:id])
     @generos = @subfamilia.generos
 
     @destroyed = false
@@ -88,7 +89,7 @@ class SubfamiliasController < ApplicationController
       if @destroyed
         flash[:notice] = 'Subfamília excluído com sucesso.'
       else
-        flash[:notice] = 'O subfamília não pode ser excluído devido a relação com o gênero ' + @genero.first.nome
+        flash[:notice] = 'O subfamília não pode ser excluído devido a relação com o gênero ' + @generos.first.nome
       end
       format.html { redirect_to(subfamilias_url) }
       format.xml  { head :ok }

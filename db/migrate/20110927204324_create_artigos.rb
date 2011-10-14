@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateArtigos < ActiveRecord::Migration
   def self.up
     create_table :artigos do |t|

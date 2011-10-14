@@ -16,9 +16,9 @@
     <td><%=h municipio[0] %></td>
     <td><%=h municipio[1] %></td>
     <td><%=h municipio[2] %></td>
-    <td><%= link_to 'Ver', municipio %></td>
+    <td><%= link_to 'Ver', 'municipios/'+municipio[3].to_s %></td>
     <td><%= link_to 'Editar', edit_municipio_path(municipio) %></td>
-    <td><%= link_to 'Excluir', municipio, :confirm => 'Você tem certeza?', :method => :delete %></td>
+    <td><%= link_to 'Excluir', 'municipios/'+municipio[3].to_s, :confirm => 'Você tem certeza?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

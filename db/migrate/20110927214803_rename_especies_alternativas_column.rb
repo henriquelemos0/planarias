@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class RenameEspeciesAlternativasColumn < ActiveRecord::Migration
   def self.up
     rename_column :especies_alternativas, :tipo_caracteristica_id, :alternativa_id

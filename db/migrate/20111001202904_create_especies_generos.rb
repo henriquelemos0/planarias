@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateEspeciesGeneros < ActiveRecord::Migration
   def self.up
     create_table :especies_generos, :id => false do |t|
