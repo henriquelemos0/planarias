@@ -1,21 +1,33 @@
-<h1>Buscar por Taxonomia</h1>
+<h1>Buscar por Classificação Taxonômica</h1>
 
 <div id="content">
-  <%if @familias.size.zero?%>
-    <br/>
-    <p>Nenhuma família cadastrada.</p>
-  <%else%>
-    <table>
-      <tr>
-        <th>Famílias</th>
-      </tr>
-  <% @familias.each do |familia| %>
-      <tr>
-        <td><%= link_to familia.nome, :action => 'familia', :id => familia.id %></td>
-      </tr>
-    <%end%>
-    </table>
-  <%end%>
+  <% if @generos.size.zero? %>
+  <br />
+  <p> Nenhum gênero cadastrado.</p>
+<% else %>
+<table>
+  <tr>
+    <th>Família</th>
+    <th>Subfamília</th>
+    <th>Gênero</th>
+  </tr>
+    <% genero00 = '' %>
+    <% genero01 = '' %>
+    <% genero02 = '' %>
+<% @generos.each do |genero| %>
+  <tr>
+    <td><%=h genero[0] if genero[0] != genero00 %></td>
+    <td><%=h genero[1] if genero[1] != genero01 %></td>
+    <td><%=h genero[2] if genero[2] != genero02 %></td>
+    <td><%= link_to 'Ver', 'genero/'+genero[3].to_s %></td>
+    <% genero00 = genero[0] %>
+    <% genero01 = genero[1] %>
+    <% genero02 = genero[2] %>
+  </tr>
+<% end %>
+</table>
+
+<%end%>
 
   <p><%= link_to 'Voltar', '/buscar' %></p>
     

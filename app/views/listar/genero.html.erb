@@ -1,7 +1,6 @@
-<h1>Buscar por Taxonomia</h1>
+<h1>Buscar por Classificação Taxonômica</h1>
 
 <div id="content">
-  <p><%= link_to @genero.subfamilia.familia.nome, :action => 'familia', :id => @genero.subfamilia.familia.id %> >> <%= link_to @genero.subfamilia.nome, :action => 'subfamilia', :id => @genero.subfamilia.id %> >> <%= @genero.nome %></p>
   <%if @especies.size.zero?%>
     <br/>
     <p>Nenhuma espécie encontrada.</p>
@@ -18,6 +17,6 @@
     </table>
   <%end%>
 
-  <p><%= link_to 'Voltar', '/listar/subfamilia/' + @genero.subfamilia.id.to_s %></p>
+  <p><%= link_to 'Voltar', :controller => 'listar', :action => 'taxonomia' %></p>
     
 </div>

@@ -3,8 +3,6 @@ class Caracteristica < ActiveRecord::Base
 
   has_many :alternativas
 
-  validates_presence_of :nome
-
-  validates_uniqueness_of :nome
+  validates :nome, :presence => true, :uniqueness => true
 
 end

@@ -16,6 +16,10 @@ class HomeController < ApplicationController
     end
   end
 
+  def sobre
+
+  end
+
 protected
 
   def authorize

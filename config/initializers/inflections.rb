@@ -7,6 +7,7 @@ ActiveSupport::Inflector.inflections do |inflect|
 	inflect.irregular 'pais', 'paises'
 	inflect.irregular 'especie', 'especies'
 	inflect.irregular 'imagem', 'imagens'
+	inflect.irregular 'familia', 'familias'
 #   inflect.plural /^(ox)$/i, '\1en'
 #   inflect.singular /^(ox)en/i, '\1'
 #   inflect.irregular 'person', 'people'

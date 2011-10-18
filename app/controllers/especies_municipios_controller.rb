@@ -3,7 +3,7 @@ class EspeciesMunicipiosController < ApplicationController
 
   def index
     @especie = Especie.find(params[:id])
-    @municipios = Municipio.find(@especie.municipios)
+    @municipios = @especie.municipios
     
     respond_to do |format|
       format.html # index.html.erb

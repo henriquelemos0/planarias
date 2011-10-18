@@ -3,9 +3,10 @@ class EspecieImagem < ActiveRecord::Base
 
   belongs_to :especie
 
-  validates_presence_of :nome
-  validates_presence_of :content_type
-  validates_presence_of :data
+  validates :nome, :presence => true, :uniqueness => true
+  validates :nome, :presence => true, :uniqueness => true
+  validates :content_type, :presence => true
+  validates :data, :presence => true
 
   validates_format_of :content_type,
                       :with => /^image/,

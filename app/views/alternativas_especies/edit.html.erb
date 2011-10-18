@@ -6,7 +6,7 @@
 
   <% @caracteristicas.each do |caracteristica| %>
   <p>
-    <% form_tag(:action => 'update_all', :method => :put, :especie_id => @especie.id, :caracteristica_id => caracteristica.id) do -%>
+    <%= form_tag :action => 'update_all', :method => :put, :especie_id => @especie.id, :caracteristica_id => caracteristica.id do %>
       <b><%=h caracteristica.nome %>: </b>
       <% caracteristica.alternativas.each do |alternativa| %>
       <%   @alternativa_nome = alternativa.nome if @especie.alternativas.exists?(alternativa.id) %>
@@ -16,7 +16,7 @@
       <br/>
       <%= collection_select(@alternativa_id, :alternativa_id, caracteristica.alternativas.all , :id, :nome, :prompt => "Sem dados" ) %>
     <%= submit_tag "Alterar" %>
-    <%end -%>
+    <%end %>
   </p>
   <% end %>
   

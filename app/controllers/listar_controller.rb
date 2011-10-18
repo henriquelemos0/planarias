@@ -5,7 +5,7 @@ class ListarController < ApplicationController
 
   def especie    
     params['nome'].nil? ? @nome = '' : @nome = params['nome'].gsub('%', '\%').gsub('_', '\_')
-    @especies = Especie.find(:all, :conditions => ['nome like ?', '%' + @nome + '%'])
+    @especies = Especie.find(:all, :order => 'nome', :conditions => ['nome like ?', '%' + @nome + '%'])
   end
 
   def localizacao
@@ -48,11 +48,15 @@ class ListarController < ApplicationController
   end
 
   def taxonomia
-    @familias = Familia.find(:all, :order => "nome")
+    sql = "SELECT Familias.nome, Subfamilias.nome, Generos.nome, Generos.id "
+    sql += "FROM Familias, Subfamilias, Generos "
+    sql += "WHERE Familias.id = Subfamilias.familia_id and Subfamilias.id = Generos.subfamilia_id "
+    sql += "ORDER BY Familias.nome, Subfamilias.nome, Generos.nome"
+    @generos = Genero.connection.execute(sql)
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @familias }
+      format.xml  { render :xml => @generos }
     end
   end
 

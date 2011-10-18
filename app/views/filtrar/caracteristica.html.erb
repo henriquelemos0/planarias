@@ -7,28 +7,39 @@
     <p>Nenhuma característica cadastrada.</p>
 
   <%else%>
-    <br/>
+    <table width="100%" >
+      <tr>
+        <td style="vertical-align: top">
+          <%= form_tag %>
 
-  <% @especies.each do |especie| %>
-    <%= link_to especie['nome'], :controller => 'verespecie', :id => especie['id']%>
-  <% end unless @especies.nil?%>
-  
-  <%= form_tag %>
+            <% @caracteristicas.each do |caracteristica| %>
 
-    <% @caracteristicas.each do |caracteristica| %>
+              <%= fields_for "caracteristica[]", caracteristica do |f| %>
+                <b><%=h caracteristica.nome %></b><br />
+                <%= f.collection_select :id, caracteristica.alternativas, :id, :nome, :include_blank => 'Sem dados' %><br />
+                <br />
+              <% end %>
 
-      <% fields_for "caracteristica[]", caracteristica do |f| %>
-        <b><%=h caracteristica.nome %></b><br />
-        <%= f.collection_select :id, caracteristica.alternativas, :id, :nome, :include_blank => 'Sem dados' %><br />
-        <br />
-      <% end %>
+            <% end %>
+          <%= image_submit_tag('search_button.gif', :class => 'search_button', :alt => 'Filtrar') %>
 
+        </td>
+        <td style="vertical-align: top; text-align: right">
+          <h3>Espécies correspondentes</h3>
+            <% @especies.each do |especie| %>
+              <%= link_to especie['nome'], :controller => 'verespecie', :action => 'show', :id => especie['id']%><br />
+            <% end unless @especies.nil? %>
+          <br />
+          <br />
+          <h3>Espécies não correspondentes</h3>
+            <% @naoespecies.each do |naoespecie| %>
+              <%= link_to naoespecie['nome'], :controller => 'verespecie', :action => 'show', :id => naoespecie['id']%> <br />
+            <% end unless @naoespecies.nil? %>
+        </td>
+      </tr>
+    </table>
     <% end %>
-
-    <%= submit_tag 'Filtrar' %>
-  
-  <% end -%>
-
+    
   <p><%= link_to 'Voltar', '/buscar' -%></p>
 
 </div>

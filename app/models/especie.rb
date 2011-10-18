@@ -8,9 +8,6 @@ class Especie < ActiveRecord::Base
   
   has_many :especie_imagens
 
-  validates_presence_of :nome
-  validates_presence_of :bibliografia
-
-  validates_uniqueness_of :nome
+  validates :nome, :presence => true, :uniqueness => true
   
 end

@@ -3,8 +3,7 @@ require 'digest/sha1'
 
 class Usuario < ActiveRecord::Base
 
-  validates_presence_of :nome
-  validates_uniqueness_of :nome
+  validates :nome, :presence => true, :uniqueness => true
 
   attr_accessor :password_confirmation
   validates_confirmation_of :password

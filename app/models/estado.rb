@@ -4,9 +4,8 @@ class Estado < ActiveRecord::Base
   belongs_to :pais
   has_many :municipios
 
-  validates_presence_of :nome
-  validates_presence_of :pais_id
+  validates :nome, :presence => true, :uniqueness => {:scope => :pais_id}
+  validates :pais_id, :presence => true
 
-  validates_uniqueness_of :nome, :scope => [:pais_id]
   
 end

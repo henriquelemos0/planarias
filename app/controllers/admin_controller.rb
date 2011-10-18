@@ -22,7 +22,7 @@ class AdminController < ApplicationController
   def logout
     session[:usuario_id] = nil
     flash[:notice] = "Sessao encerrada."
-    redirect_to(:controller => 'buscar')
+    redirect_to(:controller => 'home')
   end
 
   def authorize
