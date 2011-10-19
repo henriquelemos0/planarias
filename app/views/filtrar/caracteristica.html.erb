@@ -16,24 +16,30 @@
 
               <%= fields_for "caracteristica[]", caracteristica do |f| %>
                 <b><%=h caracteristica.nome %></b><br />
-                <%= f.collection_select :id, caracteristica.alternativas, :id, :nome, :include_blank => 'Sem dados' %><br />
+                <% alternativa = caracteristica.alternativas.find(:all, :conditions => ["id IN (?)", @alternativas_escolhidas])  %>
+                <% alternativa.first.nil? ? selecionada = '' : selecionada = alternativa.first.id %>
+                <%= f.collection_select :id, caracteristica.alternativas, :id, :nome, :include_blank => 'Sem dados', :selected => selecionada %><br />
                 <br />
               <% end %>
 
             <% end %>
-          <%= image_submit_tag('search_button.gif', :class => 'search_button', :alt => 'Filtrar') %>
-
+          <div class="search_button">
+            <%= image_submit_tag('search_button.gif', :alt => 'Filtrar') %> <br /><br />
+            <span style="text-align: center"><%= button_to 'Limpar filtro', :controller => 'filtrar', :action => 'caracteristica'%></span>
+          </div>
         </td>
         <td style="vertical-align: top; text-align: right">
           <h3>Espécies correspondentes</h3>
             <% @especies.each do |especie| %>
-              <%= link_to especie['nome'], :controller => 'verespecie', :action => 'show', :id => especie['id']%><br />
+              <% especie.generos.first.nil? ? nome = especie['nome'] : nome = especie.generos.first.nome + " " + especie['nome'] %>
+              <%= link_to nome, :controller => 'verespecie', :action => 'show', :id => especie['id']%><br />
             <% end unless @especies.nil? %>
           <br />
           <br />
           <h3>Espécies não correspondentes</h3>
             <% @naoespecies.each do |naoespecie| %>
-              <%= link_to naoespecie['nome'], :controller => 'verespecie', :action => 'show', :id => naoespecie['id']%> <br />
+              <% naoespecie.generos.first.nil? ? nome = naoespecie['nome'] : nome = naoespecie.generos.first.nome + " " + naoespecie['nome'] %>
+              <%= link_to nome, :controller => 'verespecie', :action => 'show', :id => naoespecie['id']%> <br />
             <% end unless @naoespecies.nil? %>
         </td>
       </tr>

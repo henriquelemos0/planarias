@@ -16,7 +16,7 @@
     <td><%=h estado.nome %></td>
     <td><%= link_to 'Ver', estado %></td>
     <td><%= link_to 'Editar', edit_estado_path(estado) %></td>
-    <td><%= link_to 'Excluir', estado, :confirm => 'Você tem certeza?', :method => :delete %></td>
+    <td><%= button_to 'Excluir', estado, :confirm => 'Você tem certeza?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

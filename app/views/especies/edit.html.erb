@@ -1,4 +1,4 @@
-<h1>Editando espécie '<%= @especie.nome %>'</h1>
+<h1>Editando espécie '<%= @especie.generos.first.nome unless @especie.generos.first.nil? %> <%= @especie.nome %>'</h1>
 
 <%= form_for(@especie) do |f| %>
   <%= f.error_messages %>
@@ -8,7 +8,7 @@
     <%= f.text_field :nome %>
   </p>
   <p>
-    <%= f.label :bibliografia %><br />
+    <%= f.label 'Descrição' %><br />
     <%= f.text_area :bibliografia, :cols => 90, :rows => 15 %>
   </p>
   <br />
@@ -43,7 +43,7 @@
     <%for especie_imagem in @especie_imagens%>
         <li>
           <%= especie_imagem.legenda %><br/>
-          <img src="<%= url_for(:controller => 'especie_imagens', :action => 'imagem', :id => especie_imagem.id) %>" alt="<%=especie_imagem.nome%>"/>
+          <a href="<%= url_for(:controller => 'especie_imagens', :action => 'imagem', :id => especie_imagem.id) %>"><img src="<%= url_for(:controller => 'especie_imagens', :action => 'imagem', :id => especie_imagem.id) %>" alt="<%=especie_imagem.nome%>" width="150px"/></a>
         </li>
     <% end %>
   <% end %>

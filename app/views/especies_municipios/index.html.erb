@@ -1,4 +1,4 @@
-<h1>Espécie <%= @especie.nome %> </h1>
+<h1>Espécie <%= @especie.generos.first.nome unless @especie.generos.first.nil? %> <%=h @especie.nome %> </h1>
 
 <b>Municípios onde a espécie é encontrada:</b>
 <% if @municipios.size.zero? %>
@@ -9,7 +9,7 @@
   <% for municipio in @municipios%>
     <tr>
       <td><%=h municipio.nome %></td>
-      <td><%= link_to 'Excluir', :controller => 'especies_municipios', :confirm => 'Você tem certeza?', :action => :destroy, :especie_id => @especie.id, :municipio_id => municipio.id %></td>
+      <td><%= button_to 'Excluir', :controller => 'especies_municipios', :confirm => 'Você tem certeza?', :action => :destroy, :especie_id => @especie.id, :municipio_id => municipio.id %></td>
     </tr>
   <% end %>
   </table>

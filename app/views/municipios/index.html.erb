@@ -18,7 +18,7 @@
     <td><%=h municipio[2] %></td>
     <td><%= link_to 'Ver', 'municipios/'+municipio[3].to_s %></td>
     <td><%= link_to 'Editar', edit_municipio_path(municipio) %></td>
-    <td><%= link_to 'Excluir', 'municipios/'+municipio[3].to_s, :confirm => 'Você tem certeza?', :method => :delete %></td>
+    <td><%= button_to 'Excluir', 'municipios/'+municipio[3].to_s, :confirm => 'Você tem certeza?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

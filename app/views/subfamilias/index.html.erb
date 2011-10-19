@@ -17,7 +17,7 @@
     <td><%=h subfamilia.nome %></td>
     <td><%= link_to 'Ver', subfamilia %></td>
     <td><%= link_to 'Editar', edit_subfamilia_path(subfamilia) %></td>
-    <td><%= link_to 'Excluir', subfamilia, :confirm => 'Você tem certeza?', :method => :delete %></td>
+    <td><%= button_to 'Excluir', subfamilia, :confirm => 'Você tem certeza?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

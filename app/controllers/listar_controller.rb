@@ -5,7 +5,7 @@ class ListarController < ApplicationController
 
   def especie    
     params['nome'].nil? ? @nome = '' : @nome = params['nome'].gsub('%', '\%').gsub('_', '\_')
-    @especies = Especie.find(:all, :order => 'nome', :conditions => ['nome like ?', '%' + @nome + '%'])
+    @especies = Especie.find(:all, :include => [:generos], :order => 'IFNULL (generos.nome,"ZZZ"), IFNULL(especies.nome,"ZZZ")', :conditions => ['especies.nome like ?', '%' + @nome + '%'])
   end
 
   def localizacao

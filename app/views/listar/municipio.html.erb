@@ -12,7 +12,7 @@
       </tr>
   <% @especies.each do |especie| %>
       <tr>
-        <td><%= link_to especie.nome, :controller => 'verespecie', :action => 'show', :id => especie.id %></td>
+        <td><%= link_to especie.generos.first.nil? ? especie.nome : especie.generos.first.nome + ' ' + especie.nome, :controller => 'verespecie', :action => 'show', :id => especie.id %></td>
       </tr>
     <%end%>
     </table>

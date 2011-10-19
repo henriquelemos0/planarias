@@ -1,5 +1,9 @@
 # -*- encoding : utf-8 -*-
 Planarias::Application.routes.draw do
+  get "exportar/alternativas_especies"
+
+  resources :membros
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -13,7 +13,7 @@ class EspecieImagensController < ApplicationController
   # GET /especie_imagens.xml
   def index
     @especie = Especie.find(params[:especie_id])
-    @especie_imagens = EspecieImagem.find(@especie.especie_imagens)
+    @especie_imagens = @especie.especie_imagens
 
     respond_to do |format|
       format.html # index.html.erb

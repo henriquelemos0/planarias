@@ -71,6 +71,8 @@ a:active {
 
 #columns {
   background: #fff;
+  padding: 4em 0 4em 0;
+
 }
 
 #full {
@@ -147,7 +149,7 @@ a:active {
 }
 
 #content {
-  padding: 0em 2em;
+  padding: 0em 2em 2em 2em;
 }
 
 /* Main Menu */
@@ -335,3 +337,10 @@ table a:visited:hover {
   padding: 0em 2em;
   text-align: justify
 }
+
+#map_canvas {
+  height: 100% ;
+  position: static;
+  width: 50%;
+  height: 250px;
+  }

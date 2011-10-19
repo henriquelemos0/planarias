@@ -4,6 +4,7 @@
   <br />
   <p> Nenhuma espécie cadastrada.</p>
 <% else %>
+  <div style="text-align: right"><%= link_to 'Exportar dados', :controller => 'exportar', :action => 'alternativas_especies' %></div>
 <table>
   <tr>
     <th>Nome</th>
@@ -11,10 +12,10 @@
 
 <% @especies.each do |especie| %>
   <tr>
-    <td><%=h especie.nome %></td>
+    <td><%=h especie.generos.first.nome unless especie.generos.first.nil? %> <%=h especie.nome %></td>
     <td><%= link_to 'Ver', especie %></td>
     <td><%= link_to 'Editar', edit_especie_path(especie) %></td>
-    <td><%= link_to 'Excluir', especie, :confirm => 'Você tem certeza?', :method => :delete %></td>
+    <td><%= button_to 'Excluir', especie, :confirm => 'Você tem certeza?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

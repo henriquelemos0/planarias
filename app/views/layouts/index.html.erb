@@ -4,9 +4,10 @@
 <head>
   <title>Planárias Terrestres</title>
   <%= stylesheet_link_tag "standard", :media => "all" %>
-  <%= javascript_include_tag :defaults %>
+  <%= javascript_include_tag 'application' %>
+  <%= yield :head %>
 </head>
-<body>
+<body <%= content_for?(:body_attributes) ? yield(:body_attributes) : "" %> >
 <div id="page">
   <div id="banner">
 
@@ -18,7 +19,7 @@
       <li><%= link_to 'Buscar', :controller => 'buscar' %></li>
       <li><%= link_to 'Publicações', :controller => 'home', :action => 'artigos' %></li>
       <li><%= link_to 'Espécies', :controller => 'listar', :action => 'especie' %></li>
-      <li><%= link_to 'Equipe', '/' %></li>
+      <li><%= link_to 'Equipe', :controller => 'home', :action => 'equipe' %></li>
       <li><%= link_to 'Sobre', :controller => 'home', :action => 'sobre' %></li>
     </ul>
   </div>

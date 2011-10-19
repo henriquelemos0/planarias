@@ -1,0 +1,21 @@
+<div id="title">
+  <h1>Equipe</h1>
+</div>
+<div id="content">
+<% if @membros.size.zero? %>
+  <br />
+  <p> Nenhum membro na esquipe.</p>
+<% else %>
+<table>
+<% @membros.each do |membro| %>
+  <tr>
+    <td><img src="<%= url_for(:action => 'equipe_imagem', :id => membro.id) %>" alt="<%membro.nome_imagem%>" width="100px"/></td>
+    <td><b><%= membro.nome %></b><br/> <br/>
+        <%= membro.descricao %>
+    </td>
+  </tr>
+<% end %>
+</table>
+<%end%>
+<br />
+</div>

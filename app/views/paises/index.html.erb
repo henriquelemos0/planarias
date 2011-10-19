@@ -15,7 +15,7 @@
     <td><%=h pais.nome %></td>
     <td><%= link_to 'Ver', pais %></td>
     <td><%= link_to 'Editar', edit_pais_path(pais) %></td>
-    <td><%= link_to 'Excluir', pais, :confirm => 'Você tem certeza?', :method => :delete %></td>
+    <td><%= button_to 'Excluir', pais, :confirm => 'Você tem certeza?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

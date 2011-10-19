@@ -14,7 +14,7 @@
     <td><%=h caracteristica.nome %></td>
     <td><%= link_to 'Ver', caracteristica %></td>
     <td><%= link_to 'Editar', edit_caracteristica_path(caracteristica) %></td>
-    <td><%= link_to 'Excluir', caracteristica, :confirm => 'Você tem certeza?', :method => :delete %></td>
+    <td><%= button_to 'Excluir', caracteristica, :confirm => 'Você tem certeza?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

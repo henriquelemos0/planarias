@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Nome:</b>
+  <%= @membro.nome %>
+</p>
+
+<p>
+  <b>Descricao:</b>
+  <%= @membro.descricao %>
+</p>
+
+<p>
+  <b>Imagem: </b><br/>
+    <a href="<%= url_for(:action => 'imagem', :id => @membro.id) %>">
+      <img src="<%= url_for(:action => 'imagem', :id => @membro.id) %>" alt="<%@membro.nome_imagem%>"  width="150px"/>
+    </a>
+</p>
+
+<%= link_to 'Editar', edit_membro_path(@membro) %> |
+<%= link_to 'Voltar', membros_path %>

@@ -1,5 +1,6 @@
 source 'http://rubygems.org'
 
+gem 'rake'
 gem 'rails', '3.1.0'
 
 # Bundle edge Rails instead:
@@ -28,7 +29,7 @@ gem 'jquery-rails'
 # gem 'capistrano'
 
 # To use debugger
-# gem 'ruby-debug19', :require => 'ruby-debug'
+gem 'ruby-debug19'
 
 group :test do
   # Pretty printed test output

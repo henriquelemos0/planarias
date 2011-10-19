@@ -5,7 +5,9 @@
 
 <p>
   <b>Imagem:</b><br />
-  <img src="<%= url_for(:action => 'imagem', :id => @especie_imagem.id) %>"/>
+  <a href="<%= url_for(:action => 'imagem', :id => @especie_imagem.id) %>">
+    <img src="<%= url_for(:action => 'imagem', :id => @especie_imagem.id) %>"  width="150px"/>
+  </a>
 </p>
 
 

@@ -1,0 +1,26 @@
+<table>
+  <tr>
+    <td>
+
+    </td>
+    <% @caracteristicas.each do |caracteristica| %>
+    <td>
+      <%=caracteristica.nome%>
+    </td>
+    <%end%>
+  </tr>
+  <% @especies.each do |especie| %>
+  <tr>
+    <td><%= especie.generos.first.nil? ? especie.nome : especie.generos.first.nome + ' ' + especie.nome %></td>
+    <% @caracteristicas.each do |caracteristica|%>
+      <td>
+        <% caracteristica.alternativas.each do |alternativa| %>
+        <%   @alternativa_nome = alternativa.nome if especie.alternativas.exists?(alternativa.id) %>
+        <% end %>
+        <%=  @alternativa_nome.nil? ? "Sem dados" : @alternativa_nome %>
+        <%   @alternativa_nome = nil %>
+      </td>
+    <%end%>
+  </tr>
+  <%end%>
+</table>

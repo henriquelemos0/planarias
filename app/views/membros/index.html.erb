@@ -1,0 +1,28 @@
+<h1>Listando membros</h1>
+
+<% if @membros.size.zero? %>
+  <br />
+  <p> Nenhum membro cadastrado.</p>
+<% else %>
+<table>
+  <tr>
+    <th>Nome</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @membros.each do |membro| %>
+  <tr>
+    <td><%= membro.nome %></td>
+    <td><%= link_to 'Ver', membro %></td>
+    <td><%= link_to 'Editar', edit_membro_path(membro) %></td>
+    <td><%= button_to 'Excluir', membro, confirm: 'Voce tem certeza?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<%end%>
+<br />
+
+<%= link_to 'Criar membro', new_membro_path %>

@@ -3,7 +3,7 @@ class EspeciesController < ApplicationController
   # GET /especies
   # GET /especies.xml
   def index
-    @especies = Especie.all
+    @especies = Especie.find(:all, :include => [:generos], :order => 'IFNULL (generos.nome,"ZZZ"), IFNULL(especies.nome,"ZZZ")')
     
     respond_to do |format|
       format.html # index.html.erb
@@ -30,7 +30,7 @@ class EspeciesController < ApplicationController
   # GET /especies/new.xml
   def new
     @especie = Especie.new
-
+    
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @especie }

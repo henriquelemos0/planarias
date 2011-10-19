@@ -10,7 +10,11 @@
 
 <p>
   <b>Imagem: </b><br/>
-    <img src="<%= url_for(:action => 'imagem', :id => @alternativa.id) %>" alt="<%@alternativa.nome_imagem%>"/>
+  <% unless @alternativa.imagem.nil? %>
+  <a href="<%= url_for(:action => 'imagem', :id => @alternativa.id) %>">
+    <img src="<%= url_for(:action => 'imagem', :id => @alternativa.id) %>" alt="<%@alternativa.nome_imagem%>" width="150px"/>
+  </a>
+  <%end%>
 </p>
 
 <p>

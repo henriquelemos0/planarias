@@ -14,7 +14,7 @@
     <td><%=h familia.nome %></td>
     <td><%= link_to 'Ver', familia %></td>
     <td><%= link_to 'Editar', edit_familia_path(familia) %></td>
-    <td><%= link_to 'Excluir', familia, :confirm => 'Você tem certeza?', :method => :delete %></td>
+    <td><%= button_to 'Excluir', familia, :confirm => 'Você tem certeza?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

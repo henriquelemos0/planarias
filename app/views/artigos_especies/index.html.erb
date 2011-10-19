@@ -1,4 +1,4 @@
-<h1>Espécie <%= @especie.nome %> </h1>
+<h1>Espécie <%= @especie.generos.first.nome unless @especie.generos.first.nil? %> <%=h @especie.nome %> </h1>
 
 <b>Artigos onde a espécie é encontrada:</b>
 <% if @artigos.size.zero? %>

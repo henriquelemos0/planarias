@@ -16,7 +16,7 @@
 
 <% @especies.each do |especie| %>
   <tr>
-    <td><%=h especie.nome %></td>
+    <td><%=h especie.generos.first.nome unless especie.generos.first.nil? %> <%=h especie.nome %></td>
     <td><%= link_to 'Ver', :controller => 'verespecie', :action => 'show', :id => especie.id %></td>
   </tr>
 <% end %>

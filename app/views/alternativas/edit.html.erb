@@ -1,8 +1,6 @@
 <h1>Editando Alternativa</h1>
 
-<%= form_for(:alternativa,
-          :url => {:action => 'update'},
-          :html => { :multipart => true }) do |f| %>
+<%= form_for(@alternativa) do |f| %>
 
   <%= f.error_messages %>
 
@@ -17,14 +15,19 @@
   </p>
   <p>
   Imagem: <br/>
-    <img src="<%= url_for(:action => 'imagem', :id => @alternativa.id) %>" alt="<%@alternativa.nome_imagem%>"/>
+  <% unless @alternativa.imagem.nil? %>
+    <a href="<%= url_for(:action => 'imagem', :id => @alternativa.id) %>">
+      <img src="<%= url_for(:action => 'imagem', :id => @alternativa.id) %>" alt="<%@alternativa.nome_imagem%>" width="150px"/>
+    </a>
+  <%end%>
   </p>
   <p>
     Eviar nova imagem: <%= f.file_field("imagem_enviada") %><br/>
   </p>
-  <p>
-    <%= submit_tag("Atualizar") %>
-  </p>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  <br/>
 <% end %>
 
 <%= link_to 'Ver', @alternativa %> |

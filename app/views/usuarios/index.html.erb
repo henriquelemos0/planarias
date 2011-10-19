@@ -14,7 +14,7 @@
     <td><%=h usuario.nome %></td>
     <td><%= link_to 'Ver', usuario %></td>
     <td><%= link_to 'Editar', edit_usuario_path(usuario) %></td>
-    <td><%= link_to 'Excluir', usuario, :confirm => 'Você tem certeza?', :method => :delete %></td>
+    <td><%= button_to 'Excluir', usuario, :confirm => 'Você tem certeza?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

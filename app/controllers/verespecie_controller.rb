@@ -3,6 +3,14 @@ class VerespecieController < ApplicationController
 
   layout "index"
 
+  def imagem
+    @especie_imagem = EspecieImagem.find(params[:id])
+    send_data(@especie_imagem.data,
+              :filename => @especie_imagem.nome,
+              :type => @especie_imagem.content_type,
+              :disposition => "inline")
+  end
+
   def show
     @especie = Especie.find(params[:id])
     @municipios = @especie.municipios

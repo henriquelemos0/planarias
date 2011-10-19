@@ -18,7 +18,7 @@
     <td><%=h genero[2] %></td>
     <td><%= link_to 'Ver', 'generos/'+genero[3].to_s %></td>
     <td><%= link_to 'Editar', edit_genero_path(genero) %></td>
-    <td><%= link_to 'Excluir', 'generos/'+genero[3].to_s, :confirm => 'Você tem certeza?', :method => :delete %></td>
+    <td><%= button_to 'Excluir', 'generos/'+genero[3].to_s, :confirm => 'Você tem certeza?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
